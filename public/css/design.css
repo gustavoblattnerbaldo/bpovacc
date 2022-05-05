@@ -1,0 +1,843 @@
+/*
+ *-----------------------------------------------------------------------------------
+ * === CSS DESIGN ===
+ *-----------------------------------------------------------------------------------
+ * author SOLUTII SOFT
+ */
+ 
+/* === HTML ELEMENTS === */
+	*, select { 
+		outline: none !important; 
+		border-radius: 0 !important;
+	}
+	
+	body {
+		background: #F0F5FF;
+		background-image: url('../img/bg.png');
+		color: #222;
+		font-family: 'Dosis', arial;
+		font-size: 14px;
+		line-height: 1;
+		padding-bottom: 40px;
+		padding-top: 60px;
+		text-rendering: optimizelegibility;
+	}
+
+	a:link,	
+    a:focus, 
+    a:visited , 
+    a:active,
+    a:hover { 
+		text-decoration: none; 
+	}
+	a img {
+		border: medium none;
+	}
+	
+	h1, 
+    h2, 
+    h3, 
+    h4 {
+		font-family: 'Dosis', arial;
+		font-weight: 300;		
+	}
+	h1 {
+		margin-top: 0px;
+		text-shadow: 1px 1px 0 #FFFFFF;
+	}
+	
+	small {
+        color: #000000 !important;
+    }
+    
+	label {
+		font-size: 16px;
+		font-weight: 400;
+	}	
+    
+    ul  {   
+        list-style: none;
+    }
+	
+	p  {
+        font-size: 16px;
+    }
+	
+	strong {
+		font-weight: 500;
+	}
+
+	textarea {
+        resize: none;
+    }
+
+	i {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+	
+	hr {
+		border-color: #999999;
+	}   
+        
+	main {
+		unicode-bidi: isolate; 
+		display: block; 
+		margin-bottom: 20px;    
+	}
+/* === END HTML ELEMENTS === */
+
+
+/* === LOGIN FORM === */
+	@media (min-width:599px) {
+		.login > header {
+			padding: 20px 0;
+			position: relative;
+			text-align: center;
+		}
+		.login .authForm {
+			background: none repeat scroll 0 0 white;
+			border: 1px solid #ebebeb;
+			border-radius: 3px;
+			box-sizing: border-box;
+			margin: 0 auto;
+			padding: 40px;
+			position: relative;
+			width: 530px;
+		}
+	}
+	
+	.form-signin {
+		max-width: 330px;
+		padding: 15px;
+		margin: 0 auto;
+	}
+	.form-signin .form-signin-heading,
+	.form-signin .checkbox {
+		margin-bottom: 10px;
+	}
+	.form-signin .checkbox {
+	  font-weight: normal;
+	}
+	.form-signin .form-control {
+		position: relative;
+		height: auto;
+		-webkit-box-sizing: border-box;
+		 -moz-box-sizing: border-box;
+			  box-sizing: border-box;
+		padding: 10px;
+		font-size: 16px;
+		border: 1px solid #ebebeb;
+		border-radius: 3px;
+		box-shadow: none;
+	}
+	.form-signin .form-control:focus {
+		z-index: 2;
+	}
+	.form-signin input[type="email"] {
+		margin-bottom: -1px;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+	.form-signin input[type="password"] {
+		margin-bottom: 10px;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+/* === END LOGIN FORM === */
+
+
+/* === NAVBAR === */
+	.navbar-default {
+		background-color: #FFFFFF;
+		background-image: url('../img/bg.png');
+		border-bottom: 1px solid #ddd;
+		box-shadow: 0 0 0 1px #FFFFFF inset; 
+	}
+	.navbar-default ul.nav li.dropdown:hover > ul.dropdown-menu {
+		display: block;
+	}
+	.navbar-default .brand {
+		float: left;
+		width: 285px;
+		text-shadow: 1px 1px 0 #FFFFFF;
+	}
+	.navbar-default .navbar-brand span{
+		background: #4F5B66;
+		text-shadow: none;
+		color: #EEEEEE;
+		padding: 6px 10px;
+		margin-left: -4px;
+	}
+	.navbar-default .toogle {
+		cursor: pointer;
+		font-size: 16px;
+		height: 50px;
+		line-height: 20px;
+		padding: 15px;
+	}
+	.navbar-default a {
+		color: #000;
+	}
+	.navbar-default i {
+		color: #2C3E50;
+	}
+	.navbar-default .badge {
+		background: #D7289E;	
+		color: #FFFFFF;
+		font-size: 10px;
+		padding: 4px 8px;
+	}
+	.navbar-default .navbar-text {
+		color: #222;
+	}
+
+	@media only screen and (max-width: 340px) {
+		.navbar-default .brand {
+			width: 250px !important;
+		}	
+	}
+/* === END NAVBAR === */
+	
+	
+/* === SIDEBAR === */
+	.body {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		transition: margin-left 0.5s;
+		-o-transition: margin-left 0.5s;
+		-moz-transition: margin-left 0.5s;
+		-webkit-transition: margin-left 0.5s;
+	}
+	.body.slide {
+		margin-left: 280px;
+	}
+	.sidebar {
+		background-color: #ffffff;
+		background-image: url('../img/bg.png');
+		border-right: 1px solid #FFF;
+		width: 280px;
+		height: 100%;
+		position: fixed;
+		left: -300px;
+		right: auto;
+		top: 50px;
+		z-index: 1;
+		transition: left 0.5s;
+		-o-transition: left 0.5s;
+		-moz-transition: left 0.5s;
+		-webkit-transition: left 0.5s;
+		padding: 10px;
+		overflow-y: hidden;
+	}
+	.sidebar.show {
+		left: 0;
+		display: block;
+	}
+	.ps-scrollbar-y-rail {
+		margin: 5px 0;
+	}
+	
+ 	@media only screen and (max-width : 490px) {
+		.body.slide {
+			margin-left: 0px;
+		}
+	} 
+	@media only screen and (min-width : 620px) and (max-width : 900px) {
+		.sidebar {
+			top: 100px;
+		}
+	}
+/* === END SIDEBAR === */
+
+
+/* === SIDEBAR NAV === */
+	.list-group-item {
+		background-color: #efefef;
+		background-image: url('../img/bg.png');	
+	}
+	#solso-sidebar {
+		margin-bottom: 60px;
+	}
+	#solso-sidebar .list-group-item {
+		border-bottom: 1px solid #A7ADBA;
+		border-top: 1px solid #A7ADBA;
+		box-shadow: 0 0 0 1px #eee inset;
+		padding-left: 10px;
+		padding-right: 10px;
+
+	}
+	#solso-sidebar .list-group-item:hover {
+        padding-left: 2px;
+		transition-delay: 0s;
+        transition-duration: 0.3s;
+        transition-property: all;
+        transition-timing-function: linear;	
+	}
+	#solso-sidebar .list-group-item.active, 
+	#solso-sidebar .list-group-item.active:hover, 
+	#solso-sidebar .list-group-item.active:focus {
+		background-color: #343D46 !important;
+		border-color: #343D46;	
+		box-shadow: none;
+	}	
+	#solso-sidebar .list-group-item-heading {
+		width: 140px;
+	}
+	#solso-sidebar .list-group-item-text {
+		text-transform: lowercase;
+	}
+	#solso-sidebar .list-group-item-text a {
+		display: inline;
+	}
+	#solso-sidebar .list-group-item-heading, 
+	#solso-sidebar .list-group-item-text {
+		padding-left: 10px;
+	}
+	#solso-sidebar .input-group .input-group-addon:last-child {
+		text-align: right;
+	}	
+	#solso-sidebar .input-group-addon {
+		background: none;
+		border: none;
+		color: #343D46;
+		font-size: 40px;
+		padding: 0;
+		width: 60px;
+	}
+	#solso-sidebar .active .input-group-addon {
+		color: #FFFFFF;
+	}
+	#solso-sidebar .list-group-item.active .list-group-item-text, 
+	#solso-sidebar .list-group-item.active:focus .list-group-item-text, 
+	#solso-sidebar .list-group-item.active:hover .list-group-item-text {
+		color: #FFFFFF;
+	}
+/* === END SIDEBAR NAV === */
+
+
+/* === PANELS === */
+	.panel .panel-heading {
+		background: none repeat scroll 0 0 #4F5B66;
+		background-image: url('../img/bg.png');
+		color: #FFFFFF;
+	}
+/* === END PANELS === */
+
+
+/* === PANELS LIST GROUP === */
+	.panel .list-group .list-group-item {
+		background: none repeat scroll 0 0 #FFF;
+	}
+/* === END PANELS LIST GROUP === */
+
+
+/* === NAV TABS === */
+	.nav {
+		border: 0;
+	}
+	.nav-tabs > li > a {
+		background-color: #A7ADBA;
+		color: #FFFFFF;
+		border: 1px solid #A7ADBA;
+/* 		box-shadow: 0 0 0 1px #FFFFFF inset */
+	}
+	.nav-tabs > li > a:hover,
+	.nav-tabs > li > a:focus {
+		background-color: #65737E;
+		color: #FFFFFF;
+	}
+	.nav-tabs > li.active > a, 
+	.nav-tabs > li.active > a:hover, 
+	.nav-tabs > li  > a:visited, 
+	.nav-tabs > li.active > a:focus {
+		background-color: #343D46;
+		color: #ffffff;	
+	}	
+/* === END NAV TABS === */
+
+
+/* === PAGINATION === */
+	.pagination > li > a, 
+	.pagination > li > span {
+		color: #343D46;
+	}
+	.pagination > li > a:hover, 
+	.pagination > li > span:hover, 
+	.pagination > li > a:focus, 
+	.pagination > li > span:focus {
+		background-color: #343D46;
+		color: #FFFFFF;
+	}
+/* === END PAGINATION === */
+
+
+/* === MODALS === */
+	.modal {
+		
+	}
+	.modal-backdrop {
+	   background-color: #FFF;
+	}
+	.modal-lg {
+		width: 980px;
+	}
+	.modal-header {
+		border-bottom: 1px solid #e5e5e5;
+		background-color: #3498DB;
+		background-color: #2A8450;
+		background-color: #3F7DB2;
+		color: #FFFFFF;
+		min-height: 16.43px;
+		padding: 15px;
+	}
+	.modal-body {
+		background: #F0F5FF;
+		background-image: url('../img/bg.png');	
+		max-height: 600px;
+		overflow: auto;
+	}
+/* === END MODALS === */
+
+
+/* === ALERTS === */
+	.alert  .close {
+		z-index: 9999999;
+	}
+	.alert-success {
+        background: green;
+        border: 1px solid #green;
+        color: #FFFFFF;
+        font-size: 16px;
+        line-height: 1.42857;
+        padding: 15px 10px;	
+	}
+/* === END ALERTS === */
+
+
+/* === BUTTONS === */
+	.btn-default.active {
+		background-color: darkslateblue;
+		background-color: teal;
+		border-color: #fff;
+		color: #fff;
+	}
+/* === END BUTTONS === */
+
+
+/* === TABLE === */
+    .table {
+		border-collapse: collapse;
+		border-spacing: 0;		
+        background-color: #FFFFFF;
+		border: 1px solid #DDDDDD;
+        font-size: 14px;
+    }
+    .table caption {
+        font-size: 20px;
+        font-weight: 300;
+        margin-bottom: 10px;
+        text-align: left;
+		color: #000;
+    }    
+	.table th {
+		background: #343D46;
+		border-bottom: 1px solid #DDDDDD;
+		color: #ffffff;
+		font-size: 16px;
+		font-weight: 400;
+		padding-bottom: 12px;
+		padding-top: 12px;
+		text-transform: uppercase;
+	}
+	.table th:first-child {
+		width: 20px;
+	}
+    .table td {
+        vertical-align: middle !important;
+    }	
+	
+ 	#ajaxTable {
+		padding-bottom: 40px;
+	} 
+			
+	.removePaddingTable {
+		margin-top: -250px;
+	}
+	
+	@media (min-width:1400px) {
+		.table-responsive {
+			overflow: hidden;
+		}	
+		.dataTables_filter{
+			float: right;
+		}			
+	}		
+}
+/* === END TABLE === */
+
+
+/* === LABELS === */
+	.label {
+		display: block;
+	}
+	
+	.label-green 			{background-color: #27ae60; color: #FFFFFF; padding: 4px 10px; font-size: 14px; font-weight: 400;}
+	.label-orange 			{background-color: #ec5e00; color: #FFFFFF; padding: 4px 10px; font-size: 14px; font-weight: 400;}
+	.label-blue  			{background-color: #2e8ece; color: #FFFFFF; padding: 4px 10px; font-size: 14px; font-weight: 400;}
+	.label-grey				{background-color: #7b7d7f; color: #FFFFFF; padding: 4px 10px; font-size: 14px; font-weight: 400;}
+	.label-red		  		{background-color: #c0392b; color: #FFFFFF; padding: 4px 10px; font-size: 14px; font-weight: 400;}
+	.label-purple		  	{background-color: #8e44ad; color: #FFFFFF; padding: 4px 10px; font-size: 14px; font-weight: 400;}
+	.label-owner		  	{background-color: teal; color: #FFFFFF; padding: 4px 10px; font-size: 14px; font-weight: 400;}
+	.label-client		  	{background-color: indianred; color: #FFFFFF; padding: 4px 10px; font-size: 14px; font-weight: 400;}
+/* === END LABELS === */
+
+
+/* === VALIDATION === */
+    input.parsley-success,
+    select.parsley-success,
+    textarea.parsley-success {
+        color: #468847;
+        background-color: #DFF0D8;
+        border: 1px solid #D6E9C6;
+    }
+    input.parsley-error,
+    select.parsley-error,
+    textarea.parsley-error {
+        color: #B94A48;
+        background-color: #F2DEDE;
+        border: 1px solid #EED3D7;
+    }
+    .parsley-errors-list {
+        padding: 0;
+		opacity: 0;
+		-moz-opacity: 0;
+		-webkit-opacity: 0;
+		transition: all .3s ease-in;
+		-o-transition: all .3s ease-in;
+		-ms-transition: all .3s ease-in-;
+		-moz-transition: all .3s ease-in;
+		-webkit-transition: all .3s ease-in;		
+    }
+    .parsley-errors-list li,    
+    .parsley-required ,
+    .parsley-type,
+    .error {
+        background: #DC002E;						/* aici se schimba ptr culoare*/
+        border: 1px solid #DC002E;					/* aici se schimba ptr culoare*/
+        box-shadow: 0 0 0 1px #FFFFFF inset;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.42857;
+        margin-top: 10px;	
+        padding: 5px 10px;
+    }
+    .parsley-errors-list.filled {
+        opacity: 1;
+    }  
+    .success {
+        background: green;
+        border: 1px solid #green;
+        box-shadow: 0 0 0 1px #FFFFFF inset;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.42857;
+        margin-top: 10px;	
+        padding: 15px 10px;
+    }
+    .required {
+        border-left: 2px solid #DC002E;
+    }	
+/* === END VALIDATION === */
+
+
+/* === TIMEPICKER === */
+	.bootstrap-timepicker-widget table td input {
+		border: 0;
+	}
+	.bootstrap-timepicker-widget table td i {
+		font-size: 12px !important;
+	}
+/* === END TIMEPICKER === */
+
+
+/* === DATEPICKER === */
+	.datepicker  {
+		z-index: 9999;
+	}
+/* === END DATEICKER === */
+
+
+/* === FILE INPUT === */
+	.file-caption-disabled,
+	.file-preview {
+		background: #FFFFFF;
+	}
+	.file-error-message {
+		background: #DC002E;						/* aici se schimba ptr culoare*/
+		border: 1px solid #DC002E;					/* aici se schimba ptr culoare*/
+		box-shadow: 0 0 0 1px #FFFFFF inset;
+		color: #FFFFFF;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 1.42857;
+		margin-top: 10px;	
+		padding: 5px 10px;
+	}
+/* === END FILE INPUT === */
+
+
+/* === SELECT 2 === */
+	.form-control .select2-choice {
+		border: 0;
+		border-radius: 2px;
+		display: block;
+		font-size: 14px;
+		height: 34px;
+		line-height: 1.42857;
+		padding: 6px 12px;
+	}
+/* === END SELECT 2 === */
+
+
+/* === SOLUTII SOFT === */
+	/* === HELPER CLASSES === */
+		.top10 			{margin-top: 10px;}
+		.top20 			{margin-top: 20px;}
+		.top40 			{margin-top: 40px;}
+		.top80 			{margin-top: 80px;}
+		.bottom20		{margin-bottom: 20px;}
+		.bottom40		{margin-bottom: 40px;}
+		.noMargin 		{margin: 0;}
+		.noPadding 		{padding: 0;}	
+		.noTop			{margin-top: 0}
+		.w320 			{width:320px !important;}	
+		.text-right		{text-align: right !important;}
+		.uppercase		{text-transform: uppercase;}
+		.lowercase		{text-transform: lowercase;}
+		.capitalize 		{text-transform: capitalize;}
+	/* === END HELPER CLASSES === */
+	
+	.large 				{width: 200px;}
+	.small 				{width: 100px !important;}
+	.xs-small 			{width: 50px !important;}		
+	.text-shadow		{text-shadow: 1px 1px 0 #FFFFFF;}
+
+	@media only screen and (min-width : 620px) and (max-width : 900px) {
+		.solso-content {
+			padding-top: 70px;
+		}
+	}	
+	
+	
+	/* === BUTTONS === */
+	.solso-pdf {
+		background: #8e44ad;
+		border-color: #8e44ad;
+		color: #ffffff;		
+	}
+	.solso-pdf:hover, 
+	.solso-pdf:focus, 
+	.solso-pdf.active {
+		background: #9b59b6;
+		border-color: #9b59b6;
+		color: #ffffff;
+	}
+	
+	.solso-excel {
+		background: #207245;
+		color: #ffffff;
+		border-color: #207245;
+	}
+	.solso-excel:hover, 
+	.solso-excel:focus, 
+	.solso-excel.active {
+		background: #1E5037;
+		color: #ffffff;
+		border-color: #1E5037;
+	}	
+	
+	.solso-email {
+		background: #2c3e50;
+		border-color: #2c3e50;
+		color: #ffffff;		
+	}
+	.solso-email:hover, 
+	.solso-email:focus, 
+	.solso-email.active {
+		background: #34495e;
+		border-color: #34495e;
+		color: #ffffff;		
+	}		
+	
+	.solso-cron {
+		background: #F77A52;
+		border-color: #F77A52;
+		color: #ffffff;		
+	}
+	.solso-cron:hover, 
+	.solso-cron:focus, 
+	.solso-cron.active {
+		background: #FF733B;
+		border-color: #FF733B;
+		color: #ffffff;		
+	}	
+	
+	
+	/* === END BUTTONS === */	
+	
+	/* === WIDGETS === */
+	.widget {
+		margin-bottom: 20px;
+		overflow: hidden;
+		padding: 15px;
+		border:1px solid #FFF;
+	}
+	.widget.widget-stats {
+		position: relative;
+	}
+	.widget-stats .stats-info h4 {
+		color: #fff;
+		font-size: 12px;
+		margin: 5px 0;
+	}
+	.widget-stats .stats-icon {
+		color: #fff;
+		font-size: 42px;
+		height: 56px;
+		line-height: 56px;
+		margin-left: 15px;
+		opacity: 0.2;
+		position: absolute;
+		right: 15px;
+		text-align: center;
+		top: 15px;
+		width: 56px;
+	}
+	.widget-stats .stats-info p {
+		font-size: 24px;
+		font-weight: 300;
+		margin-bottom: 0;
+	}
+	.widget hr {
+		border-top: 1px solid #FFFFFF;
+	}
+	.widget-stats .stats-link a {
+		background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
+		color: #ddd;
+		display: block;
+		font-weight: 300;
+		margin: 15px -15px -15px;
+		padding: 7px 15px;
+		text-align: right;
+		text-decoration: none;
+	}
+	.widget-stats .stats-link a:focus, .widget-stats .stats-link a:hover {
+		background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
+		color: #fff;
+	}
+	.widget-stats .stats-icon.stats-icon-lg {
+		font-size: 52px;
+		right: 21px;
+		top: 12px;
+	}
+	.widget-stats .stats-title {
+		font-size: 16px;
+		line-height: 1.1;
+		margin: 2px 0 7px;
+		position: relative;
+		text-transform: uppercase;
+	}
+	.widget-stats .stats-desc, .widget-stats .stats-title {
+		color: rgba(255, 255, 255, 0.6);
+	}
+	.widget-stats .stats-desc {
+		font-weight: 300;
+		margin-bottom: 0;
+	}
+	.widget-stats .stats-number {
+		color: #FFFFFF;
+		font-size: 24px;
+		font-weight: 300;
+		margin-bottom: 10px;
+	}
+	.widget-stats .stats-progress {
+		background: none repeat scroll 0 0 #FFFFFF;
+		height: 2px;
+		margin: 0 -15px 12px;
+	}
+	.widget-stats .stats-progress .progress-bar {
+		background: none repeat scroll 0 0 #FFFFFF;
+	}
+
+	.small-widget {
+		background: none repeat scroll 0 0 #FFFFFF;
+	}
+	
+	.bg-green 					{background: none repeat scroll 0 0 #2ABB9B;}	
+	.bg-blue 					{background: none repeat scroll 0 0 #4183D7;}	
+	.bg-purple 					{background: none repeat scroll 0 0 #8E44AD;}
+	.bg-grey 					{background: none repeat scroll 0 0 #2C3E50;}
+	/* === END WIDGETS === */
+	
+	/* === PIE CHART === */
+	.solso-pie-chart {
+		color: #777777;
+		padding-top: 10px;
+		text-align: center;
+		height: 180px;
+		text-transform: uppercase;
+	}
+	.solso-pie-chart h4 {
+		margin-top: 20px;
+	}
+	.solso-pie-chart p {
+		padding-left: 15px;
+		text-align: left;
+	}
+	.solso-pie-chart .chart {
+		position: relative;
+		display: inline-block;
+		width: 110px;
+		height: 110px;
+		text-align: center;
+	}
+	.solso-pie-chart .chart canvas {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.solso-pie-chart .percent {
+		display: inline-block;
+		line-height: 110px;
+		z-index: 2;
+	}
+	.solso-pie-chart .percent:after {
+		content: '%';
+		margin-left: 0.1em;
+		font-size: .8em;
+	}
+	.chart-invoice-paid 			{border-bottom: 2px solid #27ae60;}
+	.chart-invoice-unpaid 		{border-bottom: 2px solid #ec5e00;}	
+	.chart-invoice-partial-paid	{border-bottom: 2px solid #2e8ece;}	
+	.chart-invoice-overdue		{border-bottom: 2px solid #c0392b;}	
+	.chart-invoice-canceled		{border-bottom: 2px solid #7b7d7f;}	
+	.chart-invoice-pending		{border-bottom: 2px solid #8e44ad;}		
+	/* === END PIE CHART === */	
+/* === END SOLUTII SOFT === */
+
+
+
+
+
+
+pre {
+	margin-top: 100px;
+	margin-left: 320px;
+	margin-right: 20px;
+}
+
+

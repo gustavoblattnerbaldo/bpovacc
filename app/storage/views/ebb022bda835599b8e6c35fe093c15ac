@@ -1,0 +1,25 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="col-md-12 ">
+		<h1>
+			<i class="fa fa-book"></i> <?php echo trans('translate.languages'); ?>
+
+		</h1>
+		
+		<button type="button" class="btn btn-primary solsoShowModal" 
+		data-toggle="modal" data-target="#solsoCrudModal" data-href="<?php echo URL::to('language/create'); ?>" data-modal-title="<?php echo trans('translate.create_new_language'); ?>">
+			<i class="fa fa-plus"></i> <?php echo trans('translate.create_new_language'); ?>
+
+		</button>
+	</div>	
+
+	
+	<div class="col-md-12 top40">
+		<h3><?php echo trans('translate.languages'); ?></h3>
+
+		<div id="ajaxTable" class="table-responsive">
+			<?php echo $__env->make('admin.languages.table', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
+		</div>	
+	</div>
+	
+<?php $__env->stopSection(); ?>

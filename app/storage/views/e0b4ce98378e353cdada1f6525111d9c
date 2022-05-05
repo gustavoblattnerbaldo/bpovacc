@@ -1,0 +1,36 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="col-md-12">
+		<h1><i class="fa fa-cogs"></i> <?php echo trans('translate.settings'); ?></h1>
+	</div>		
+	
+	<div class="col-md-12">
+		<ul id="solsoTabs" class="nav nav-tabs" role="tablist">
+			<li class="active"><a href="#tabDetails" role="tab" data-toggle="tab"><?php echo trans('translate.details'); ?></a></li>
+			<li><a href="#tabLanguage" role="tab" data-toggle="tab"><?php echo trans('translate.languages'); ?></a></li>
+			<li><a href="#tabAccount" role="tab" data-toggle="tab"><?php echo trans('translate.account'); ?></a></li>
+			<li><a href="#tabPassword" role="tab" data-toggle="tab"><?php echo trans('translate.password'); ?></a></li>
+		</ul>
+		
+		<div class="row tab-content">
+			<div class="tab-pane active" id="tabDetails">
+				<?php echo $__env->make('users.settings.details', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>			
+			
+			<div class="tab-pane" id="tabLanguage">
+				<?php echo $__env->make('users.settings.language', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>	
+
+			<div class="tab-pane" id="tabAccount">
+				<?php echo $__env->make('users.settings.account', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>	
+
+			<div class="tab-pane" id="tabPassword">
+				<?php echo $__env->make('users.settings.password', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>			
+		</div>		
+	</div>
+
+	<?php echo $__env->make('assets.modals.modal-delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		
+<?php $__env->stopSection(); ?>

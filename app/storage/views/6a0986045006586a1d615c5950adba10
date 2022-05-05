@@ -1,0 +1,191 @@
+<table class="table solsoTable" data-alert="<?php echo isset($alert) ? $alert : false; ?>" data-all="<?php echo sizeof($tickets); ?>">
+	<thead>
+		<tr>
+			<th><?php echo trans('translate.crt'); ?>.</th>
+			
+			<?php if( ! $userIsClient ): ?>
+				<th class="col-md-2"><?php echo trans('translate.client'); ?></th>
+			<?php endif; ?>
+			
+			<?php if( ! $userIsClient ): ?>	
+				<th class="col-md-2"><?php echo trans('translate.assign_to'); ?></th>
+			<?php endif; ?>			
+			
+			<th><?php echo trans('translate.title'); ?></th>
+			<th class="small"><?php echo trans('translate.department'); ?></th>
+			<th class="small"><?php echo trans('translate.type'); ?></th>
+			<th class="small"><?php echo trans('translate.priority'); ?></th>
+			<th class="small"><?php echo trans('translate.status'); ?></th>
+			<th class="small text-center"><?php echo trans('translate.created_at'); ?></th>			
+			<th class="small"><?php echo trans('translate.state'); ?></th>
+			
+			<?php if( ! $userIsClient ): ?>
+				<th class="small"><?php echo trans('translate.action'); ?></th>
+				<th class="small"><?php echo trans('translate.action'); ?></th>
+			<?php endif; ?>
+			
+			<?php if( $userIsClient ): ?>
+				<th class="small"><?php echo trans('translate.action'); ?></th>
+				<th class="small"><?php echo trans('translate.action'); ?></th>
+			<?php endif; ?>
+		</tr>
+	</thead>
+	
+	<tbody>
+
+	<?php foreach($tickets as $crt => $v): ?>
+		<tr>
+			<td>
+				<?php echo $crt+1; ?>
+
+			</td>
+
+			<?php if( ! $userIsClient ): ?>
+				<td>
+					<label class="label-client"><?php echo $v->client; ?></label>
+				</td>
+			<?php endif; ?>
+			
+			<?php if( ! $userIsClient ): ?>
+				<td>
+					<?php if($v->staff_id == 0): ?>
+						<label class="label-green"><?php echo trans('translate.free'); ?></label>
+					<?php else: ?>
+						<label class="label-owner">
+							<?php if($user->role_id == 1): ?>
+								<?php echo $v->staff; ?>
+
+							<?php else: ?>
+								<?php echo $user->name; ?>
+
+							<?php endif; ?>
+						</label>
+					<?php endif; ?>		
+				</td>
+			<?php endif; ?>
+			
+			<td>
+				<?php echo $v->title; ?>
+
+			</td>
+
+			<td>
+				<?php echo trans('translate.' . Language::translateSlug($v->department, '_')); ?>
+
+			</td>		
+			
+			<td>
+				<?php echo trans('translate.' . Language::translateSlug($v->type, '_')); ?>
+
+			</td>	
+
+			<td>
+				<?php echo trans('translate.' . Language::translateSlug($v->priority, '_')); ?>
+
+			</td>
+			
+			<td>
+				<?php if($v->status_id == 0): ?>
+					<?php echo trans('translate.processing'); ?>
+
+				<?php else: ?>
+					<?php echo trans('translate.' . Language::translateSlug($v->status, '_')); ?>
+
+				<?php endif; ?>
+			</td>			
+
+			<td class="text-center">
+				<?php echo $v->created_at; ?>
+
+			</td>
+			
+			<td>
+				<?php if($v->state == 0): ?>
+					<label class="label-orange"><?php echo trans('translate.unread'); ?></label>
+				<?php else: ?>
+					<label class="label-green"><?php echo trans('translate.read'); ?></label>
+				<?php endif; ?>
+			</td>			
+			
+			<?php if( ! $userIsClient ): ?>
+				<td>
+					<div class="dropdown">
+						<button class="btn solso-pdf dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+							<?php echo trans('translate.quick_actions'); ?>
+
+							<span class="caret"></span>
+						</button>
+					
+						<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="#" class="solsoShowModal" data-toggle="modal" 
+								data-target="#solsoCrudModal" data-href="<?php echo URL::to('ticket/' . $v->id . '/department'); ?>" data-modal-title="<?php echo trans('translate.change_department'); ?>">
+									<?php echo trans('translate.change_department'); ?>
+
+								</a>
+							</li>							
+							
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="#" class="solsoShowModal" data-toggle="modal" 
+								data-target="#solsoCrudModal" data-href="<?php echo URL::to('ticket/' . $v->id . '/status'); ?>" data-modal-title="<?php echo trans('translate.change_status'); ?>">
+									<?php echo trans('translate.change_status'); ?>
+
+								</a>
+							</li>
+							
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="#" class="solsoShowModal" data-toggle="modal" 
+								data-target="#solsoCrudModal" data-href="<?php echo URL::to('ticket/' . $v->id . '/priority'); ?>" data-modal-title="<?php echo trans('translate.change_priority'); ?>">
+									<?php echo trans('translate.change_priority'); ?>
+
+								</a>							
+							</li>
+							
+							<?php if( $user->role_id == 1 ): ?>
+								<li class="divider"></li>
+								<li role="presentation">
+									<a role="menuitem" tabindex="-1" href="#" class="solsoShowModal" data-toggle="modal" 
+									data-target="#solsoCrudModal" data-href="<?php echo URL::to('ticket/' . $v->id . '/workers'); ?>" data-modal-title="<?php echo trans('translate.assign_ticket'); ?>">
+										<?php echo trans('translate.assign_ticket'); ?>
+
+									</a>
+								</li>
+							<?php endif; ?>							
+							
+							<?php if( $user->role_id == 2 && $v->staff_id == 0 ): ?>
+								<li class="divider"></li>
+								<li role="presentation">
+									<a role="menuitem" tabindex="-1" href="#" class="solsoShowModal" data-toggle="modal" 
+									data-target="#solsoCrudModal" data-href="<?php echo URL::to('ticket/' . $v->id . '/workers'); ?>" data-modal-title="<?php echo trans('translate.work_on_this_ticket'); ?>">
+										<?php echo trans('translate.work_on_this_ticket'); ?>
+
+									</a>
+								</li>
+							<?php endif; ?>
+						</ul>
+					</div>
+				</td>
+			<?php endif; ?>
+
+			<td>
+				<button type="button" class="btn btn-info solsoShowModal" 
+				data-toggle="modal" data-target="#solsoCrudModal" data-href="<?php echo URL::to('ticket/' . $v->id); ?>" data-modal-title="<?php echo trans('translate.show_ticket'); ?>">
+					<i class="fa fa-eye"></i> <?php echo trans('translate.show'); ?>
+
+				</button>
+			</td>	
+			
+			<?php if( $userIsClient ): ?>
+				<td>		
+					<button type="button" class="btn btn-danger solsoConfirm" 
+					data-toggle="modal" data-target="#solsoDeleteModal" data-href="<?php echo URL::to('ticket/' . $v->id); ?>">
+						<i class="fa fa-trash"></i> <?php echo trans('translate.delete'); ?>
+
+					</button>
+				</td>		
+			<?php endif; ?>
+		</tr>
+	<?php endforeach; ?>
+	
+	</tbody>
+</table>

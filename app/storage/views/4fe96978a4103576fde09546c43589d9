@@ -1,0 +1,26 @@
+<div class="col-md-12">
+	
+	<h3><?php echo trans('translate.department'); ?></h3>	
+	<div class="row">
+		<?php echo Form::open(array('url' => 'department/' . $department->id, 'role' => 'form', 'method' => 'PUT', 'class' => 'solsoForm', 'data-alert' => isset($alert) ? $alert : false )); ?>
+
+
+			<div class="form-group col-md-4">
+				<label for="name"><?php echo trans('translate.name'); ?></label>
+				<input type="text" name="name" class="form-control required" autocomplete="off" value="<?php echo trans('translate.' . Language::translateSlug($department->name, '_')); ?>">
+
+				<?php echo $errors->first('name', '<p class="error">:messages</p>');?>
+			</div>
+
+			<div class="form-group col-md-12">
+				<input type="hidden" name="oldValue" value="<?php echo $department->name; ?>">
+				<button type="button" class="btn btn-success solsoSave" 
+				data-message-title="<?php echo trans('translate.update_notification'); ?>" data-message-error="<?php echo trans('translate.validation_error_messages'); ?>" data-message-success="<?php echo trans('translate.data_was_updated'); ?>">
+					<i class="fa fa-save"></i> <?php echo trans('translate.save'); ?>
+
+				</button>
+			</div>
+		
+		<?php echo Form::close(); ?>		
+	</div>
+</div>

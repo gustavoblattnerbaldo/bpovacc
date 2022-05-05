@@ -1,0 +1,77 @@
+<div id="solso-sidebar" class="list-group">
+	<a href="<?php echo URL::to('admin'); ?>" class="list-group-item <?php if ( Request::segment(1) == 'admin' && ! Request::segment(2)) { ?> active <?php } ?>">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-home"></i></span>
+			<h4 class="list-group-item-heading"><?php echo trans('translate.dashboard'); ?></h4>
+			<p class="list-group-item-text">
+				<label class="label-red"><?php echo $newTickets; ?> <?php echo trans('translate.new_tickets'); ?></label>
+			</p>
+		</div>	  
+	</a>
+	
+	<a href="<?php echo URL::to('department'); ?>" class="list-group-item <?php if ( Request::segment(1) == 'department' ) { ?> active <?php } ?>">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-list"></i></span>
+			<h4 class="list-group-item-heading"><?php echo trans('translate.departments'); ?></h4>
+			<p class="list-group-item-text">
+				<?php echo trans('translate.create'); ?>  | <?php echo trans('translate.edit'); ?>  | <?php echo trans('translate.delete'); ?> 
+			</p>
+		</div>	  
+	</a>
+
+	<a href="<?php echo URL::to('staff'); ?>" class="list-group-item <?php if ( Request::segment(1) == 'staff' ) { ?> active <?php } ?>">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-users"></i></span>
+			<h4 class="list-group-item-heading"><?php echo trans('translate.staff'); ?></h4>
+			<p class="list-group-item-text">
+				<?php echo trans('translate.create'); ?>  | <?php echo trans('translate.edit'); ?>  | <?php echo trans('translate.delete'); ?> 
+			</p>
+		</div>	  
+	</a>
+	
+	<a href="<?php echo URL::to('client'); ?>" class="list-group-item <?php if ( Request::segment(1) == 'client' ) { ?> active <?php } ?>">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-users"></i></span>
+			<h4 class="list-group-item-heading"><?php echo trans('translate.clients'); ?></h4>
+			<p class="list-group-item-text">
+				<?php echo trans('translate.create'); ?>  | <?php echo trans('translate.edit'); ?>  | <?php echo trans('translate.delete'); ?> 
+			</p>
+		</div>	  
+	</a>	
+	
+	<a href="<?php echo URL::to('reply'); ?>" class="list-group-item <?php if ( Request::segment(1) == 'reply' ) { ?> active <?php } ?>">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-comments"></i></span>
+			<h4 class="list-group-item-heading"><?php echo trans('translate.replies'); ?></h4>
+			<p class="list-group-item-text">
+				<label class="label-red">
+					<span class="span-new-reply"><?php echo $newReplies; ?></span>
+					<?php echo trans('translate.new_replies'); ?>
+
+				</label>
+			</p>
+		</div>	  
+	</a>	
+	
+	<a href="<?php echo URL::to('language'); ?>" class="list-group-item <?php if ( Request::segment(1) == 'language' ) { ?> active <?php } ?>">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-book"></i></span>
+			<h4 class="list-group-item-heading"><?php echo trans('translate.languages'); ?></h4>
+			<p class="list-group-item-text">
+				<?php echo trans('translate.create'); ?> | <?php echo trans('translate.edit'); ?> | <?php echo trans('translate.delete'); ?>
+
+			</p>
+		</div>	  
+	</a>
+
+	<a href="<?php echo URL::to('admin/settings'); ?>" class="list-group-item <?php if ( Request::segment(2) == 'settings' ) { ?> active <?php } ?>">
+		<div class="input-group">
+			<span class="input-group-addon"><i class="fa fa-cogs"></i></span>
+			<h4 class="list-group-item-heading"><?php echo trans('translate.settings'); ?></h4>
+			<p class="list-group-item-text">
+				<?php echo trans('translate.create'); ?> | <?php echo trans('translate.edit'); ?> | <?php echo trans('translate.delete'); ?>
+
+			</p>
+		</div>	  
+	</a>	
+</div>

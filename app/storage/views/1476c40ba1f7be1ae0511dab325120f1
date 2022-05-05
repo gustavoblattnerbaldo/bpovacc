@@ -1,0 +1,50 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="login">
+		<header>
+			<h1 class="text-center"><?php echo trans('translate.app_name'); ?></h1>
+		</header>
+
+		<div class="authForm">
+			<h3 class="text-center"><?php echo trans('translate.log_in_to_your_account'); ?></h3>
+					
+			<?php echo Form::open(array('url' => 'auth', 'role' => 'form', 'class' => 'validateJSForm form-signin')); ?>
+
+			
+				<div class="form-group">
+					<label for="email" class="sr-only"><?php echo trans('translate.email'); ?></label>
+					<input type="email" name="email" class="form-control required autofocus" 
+					autocomplete="off" required autofocus placeholder="<?php echo trans('translate.email'); ?>" value="<?php echo Input::old('email'); ?>">
+					
+					<?php echo $errors->first('email', '<p class="error">:messages</p>');?>
+				</div>
+				
+				<div class="form-group">
+					<label for="password" class="sr-only"><?php echo trans('translate.password'); ?></label>
+					<input type="password" name="password" class="form-control required" 
+					autocomplete="off" required placeholder="<?php echo trans('translate.password'); ?>"
+					data-parsley-minlength="6">
+					
+					<?php echo $errors->first('password', '<p class="error">:messages</p>');?>
+				</div>
+				
+				<div class="form-group">
+					<button class="btn solso-email btn-block" type="submit">
+						<i class="fa fa-sign-in"></i> <?php echo trans('translate.log_in'); ?>
+
+					</button>
+				</div>
+				
+				<div class="form-group">
+					<a href="<?php echo URL::to('create-account'); ?>"> <?php echo trans('translate.sign_in'); ?></a>
+					<a href="<?php echo URL::to('forgot-password'); ?>" class="pull-right"> <?php echo trans('translate.forgot_password'); ?></a>
+				</div>
+				
+			<?php echo Form::close(); ?>	
+
+		</div>
+	</div>
+	<div align="center">login:admin@demo.demo <br>
+		login:demodemo </div>
+
+<?php $__env->stopSection(); ?>	

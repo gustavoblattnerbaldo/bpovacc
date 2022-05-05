@@ -1,0 +1,38 @@
+<div class="col-md-6 col-lg-4">
+	<h3><?php echo trans('translate.default_language'); ?></h3>
+	
+	<?php echo Form::open(array('role' => 'form')); ?>
+
+
+		<div class="form-group">
+			<select name="language" class="form-control required">
+				
+				<?php if(isset($defaultLanguage->name)): ?>
+					<option value="<?php echo $defaultLanguage->id; ?>" selected> <?php echo $defaultLanguage->name; ?> </option>
+					<option value=""><?php echo trans('translate.choose'); ?></option>
+				<?php else: ?>
+					<option value="" selected><?php echo trans('translate.choose'); ?></option>
+				<?php endif; ?>	
+				
+				<?php foreach($languages as $v): ?>
+					<option value="<?php echo $v->id; ?>"> <?php echo $v->name; ?> </option>
+				<?php endforeach; ?>			
+				
+			</select>
+			
+			<?php echo $errors->first('language', '<p class="error">:messages</p>');?>
+		</div>
+
+		<div class="form-group">
+			<input type="hidden" name="solsoStatus" value="<?php echo isset($alert) ? $alert : 'false';; ?>">
+			<button type="submit" class="btn btn-success solsoAjax" 
+				data-href="<?php echo URL::to('language/setDefault'); ?>" data-method="post" data-return="tabLanguage" 
+				data-message-title="<?php echo trans('translate.create_notification'); ?>" data-message-error="<?php echo trans('translate.validation_error_messages'); ?>" 
+				data-message-success="<?php echo trans('translate.data_was_saved'); ?>" data-message-warning="<?php echo trans('translate.value_already_exist'); ?>">
+				<i class="fa fa-save"></i> <?php echo trans('translate.save'); ?>
+
+			</button>
+		</div>
+	
+	<?php echo Form::close(); ?>	
+</div>	

@@ -1,0 +1,132 @@
+<div class="col-md-12">
+	<?php if($reply->user_id == $user->id): ?>
+		<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div class="panel-heading" role="tab" id="heading1">
+					<h4 class="panel-title">
+						<?php echo trans('translate.details'); ?>
+
+						<a data-toggle="collapse" data-parent="#accordion1" href="#collapse1" aria-expanded="true" aria-controls="collapse1" class="pull-right">
+							<i class="solsoCollapseIcon fa fa-chevron-up"></i>	
+						</a>
+					</h4>
+				</div>
+						
+				<div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+					<div class="panel-body">
+						<table class="table table-striped newReplies" data-alert="<?php echo isset($alert) ? $alert : false; ?>" data-all="<?php echo $newReplies; ?>">
+							<tbody>
+								<tr>
+									<td colspan="2">
+										<span class="label-grey pull-right"><?php echo $reply->created_at; ?></span>
+										<h4><?php echo $reply->title; ?></h4>
+										
+										<?php echo $reply->content; ?>
+
+									</td>
+								</tr>
+							<tbody>
+						</table>
+					</div>
+				</div>					
+			</div>					
+		</div>
+	
+	
+		<?php if($reply->state == 0): ?>
+			<?php echo Form::open(array('url' => 'reply/' . $reply->id .'/mark-as-read', 'role' => 'form', 'method' => 'POST')); ?>
+
+				<button type="button" class="btn btn-success solsoSave"
+				data-message-title="<?php echo trans('translate.update_notification'); ?>" data-message-error="<?php echo trans('translate.validation_error_messages'); ?>" data-message-success="<?php echo trans('translate.reply_was_mark_as_read'); ?>">
+					<i class="fa fa-check"></i> <?php echo trans('translate.mark_as_read'); ?>
+
+				</button>
+			<?php echo Form::close(); ?>		
+		<?php endif; ?>	
+	
+	
+		<h3><?php echo trans('translate.reply_to'); ?> </h3>	
+
+		<?php echo Form::open(array('url' => 'reply/' . $reply->ticket_id . '/reply', 'role' => 'form', 'method' => 'POST', 'class' => 'solsoForm')); ?>
+
+		
+			<div class="form-group">
+				<label for="title"> <?php echo trans('translate.title'); ?> </label>
+				<input type="text" name="title" class="form-control required" autocomplete="off" value="<?php echo trans('translate.reply_to'); ?>: <?php echo $reply->title; ?>">
+
+				<?php echo $errors->first('title', '<p class="error">:messages</p>');?>
+			</div>		
+			
+			<div class="form-group">
+				<label for="content"> <?php echo trans('translate.message'); ?> </label>
+				<textarea name="content" class="form-control required solsoEditor" rows="7" autocomplete="off"></textarea>
+				
+				<?php echo $errors->first('content', '<p class="error">:messages</p>');?>
+			</div>	
+			
+			<div class="form-group">
+				<input type="hidden" name="userID" value="<?php echo $reply->from_id; ?>">
+				<input type="hidden" name="replyID" value="<?php echo $reply->id; ?>">
+				<button type="button" class="btn btn-success solsoSave" 
+				data-message-title="<?php echo trans('translate.update_notification'); ?>" data-message-error="<?php echo trans('translate.validation_error_messages'); ?>" data-message-success="<?php echo trans('translate.message_was_sent'); ?>">
+					<i class="fa fa-share"></i> <?php echo trans('translate.send'); ?>
+
+				</button>
+			</div>
+			
+		<?php echo Form::close(); ?>		
+	<?php endif; ?>	
+
+	<div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="heading2">
+				<h4 class="panel-title">
+					<?php echo trans('translate.histories'); ?>
+
+					<a data-toggle="collapse" data-parent="#accordion2" href="#collapse2" aria-expanded="true" aria-controls="collapse2" class="pull-right">
+						<i class="solsoCollapseIcon fa fa-chevron-up"></i>	
+					</a>
+				</h4>
+			</div>
+
+			<div id="collapse2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2">
+				<div class="panel-body">						
+				<table class="table table-striped">
+					<tbody>				
+						<tr>
+							<td>
+								<span class="label label-client"><?php echo $ticket->client; ?></span>
+								<span class="label-grey pull-right"><?php echo $ticket->created_at; ?></span>
+								
+								<h4><?php echo $ticket->title; ?></h4>
+								
+								<?php echo $ticket->content; ?>
+
+							</td>								
+						</tr>
+						
+						<?php foreach($histories as $id => $history): ?>
+							<tr>
+								<td>
+									<?php if($history->role_id == 3): ?>
+										<span class="label-client"><?php echo $history->client; ?></span>
+									<?php else: ?>
+										<span class="label-owner"><?php echo $owner; ?></span>
+									<?php endif; ?>
+
+									<span class="label-grey pull-right"><?php echo $history->created_at; ?></span>
+									
+									<h4><?php echo $history->title; ?></h4>
+									
+									<?php echo $history->content; ?>
+
+								</td>
+							</tr>					
+						<?php endforeach; ?>
+					</tbody>
+				</table>	
+				</div>
+			</div>					
+		</div>					
+	</div>		
+</div>

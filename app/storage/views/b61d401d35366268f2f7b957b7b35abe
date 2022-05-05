@@ -1,0 +1,24 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="col-md-12">
+		<h1>
+			<i class="fa fa-users"></i> <?php echo trans('translate.staff'); ?>
+
+		</h1>
+
+		<button type="button" class="btn btn-primary solsoShowModal" 
+		data-toggle="modal" data-target="#solsoCrudModal" data-href="<?php echo URL::to('staff/create'); ?>" data-modal-title="<?php echo trans('translate.create_new_staff'); ?>">
+			<i class="fa fa-user-plus"></i> <?php echo trans('translate.create_new_staff'); ?>
+
+		</button>		
+	</div>		
+
+	<div class="col-md-12 top40">
+		<h3><?php echo trans('translate.staff'); ?></h3>
+
+		<div id="ajaxTable" class="table-responsive">
+			<?php echo $__env->make('admin.staff.table', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
+		</div>	
+	</div>
+	
+<?php $__env->stopSection(); ?>

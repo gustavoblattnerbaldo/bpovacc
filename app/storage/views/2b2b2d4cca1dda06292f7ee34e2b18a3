@@ -1,0 +1,18 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="col-md-12">
+		<h1>
+			<i class="fa fa-comments"></i> <?php echo trans('translate.replies'); ?>
+
+		</h1>
+	</div>	
+
+	<div class="col-md-12 top40">
+		<h3><?php echo trans('translate.replies'); ?></h3>
+
+		<div id="ajaxTable" class="table-responsive">
+			<?php echo $__env->make('users.replies.table', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
+		</div>	
+	</div>
+	
+<?php $__env->stopSection(); ?>

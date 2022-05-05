@@ -1,0 +1,28 @@
+<div class="col-md-12">
+	<?php if(Session::has('success')): ?>
+		<div role="alert" class="alert alert-success top20">
+			<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo Session::get('success'); ?> !
+		</div>		
+	<?php endif; ?>	
+	
+	<?php if(Session::has('message')): ?>
+		<div role="alert" class="alert alert-info top20">
+			<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo Session::get('message'); ?> !
+		</div>		
+	<?php endif; ?>		
+
+	<?php if(Session::has('warning')): ?>
+		<div role="alert" class="alert alert-warning top20">
+			<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo Session::get('warning'); ?> !
+		</div>		
+	<?php endif; ?>	
+
+	<?php if(Session::has('error')): ?>
+		<div role="alert" class="alert alert-danger top20">
+			<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo Session::get('error'); ?> !
+		</div>		
+	<?php endif; ?>	
+
+	<?php echo Session::forget('message'); ?>
+
+</div>

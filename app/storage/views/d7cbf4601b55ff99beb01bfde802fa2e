@@ -1,0 +1,52 @@
+<?php $__env->startSection('content'); ?>
+	
+	<div class="col-md-12 ">
+		<h1><i class="fa fa-plus"></i> <?php echo trans('translate.translate_language'); ?></h1>
+	</div>		
+
+	<?php echo Form::open(array('url' => 'language/translate', 'role' => 'form', 'class' => 'solsoForm')); ?>
+
+	
+	<div class="col-md-12 ">
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th class="col-md-6"><?php echo trans('translate.original_language'); ?></th>
+					<th class="col-md-6"><?php echo trans('translate.translate_language'); ?></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<?php foreach($original as $k => $v): ?>
+				
+				<tr>
+					<td>
+						<?php echo $v; ?>
+
+					</th>
+					
+					<td>
+						<input type="text" name="words[<?php echo $k; ?>]" class="form-control required" value="<?php echo isset($translated[$k]) ? $translated[$k] : $v; ?>">
+					</th>
+				</tr>
+				
+				<?php endforeach; ?>
+			</tbody>	
+			
+			<tfoot>
+				<tr>
+					<td colspan="2">
+						<input type="hidden" name="languageID" value="<?php echo Request::segment(2); ?>">
+						<button type="submit" class="btn btn-success"><i class="fa fa-save"></i> <?php echo trans('translate.save'); ?></button>
+					</td>
+				</tr>
+			</tfoot>
+		</table>		
+	</div>	
+	</div>	
+
+	<?php echo Form::close(); ?>
+
+	
+<?php $__env->stopSection(); ?>

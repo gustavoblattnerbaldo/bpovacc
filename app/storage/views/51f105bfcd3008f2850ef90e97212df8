@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<h2><?php echo trans('translate.new_ticket'); ?></h2>
+
+	<table>
+		<tr>
+			<td><?php echo trans('translate.title'); ?></td>
+			<td><?php echo $title; ?></td>
+		</tr>
+		
+		<tr>
+			<td><?php echo trans('translate.content'); ?></td>
+			<td><?php echo $content; ?></td>
+		</tr>            
+	</table>
+</body>
+</html>

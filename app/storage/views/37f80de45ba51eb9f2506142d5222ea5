@@ -1,0 +1,46 @@
+<table class="table solsoTable" data-alert="<?php echo isset($alert) ? $alert : false; ?>" data-all="<?php echo sizeof($departments); ?>">
+	<thead>
+		<tr>
+			<th><?php echo trans('translate.crt'); ?></th>
+			<th><?php echo trans('translate.name'); ?></th>
+			<th class="small"><?php echo trans('translate.action'); ?></th>
+			<th class="small"><?php echo trans('translate.action'); ?></th>
+		</tr>
+	</thead>
+	
+	<tbody>
+
+	<?php foreach($departments as $crt => $v): ?>
+	
+		<tr>
+			<td>
+				<?php echo $crt+1; ?>
+
+			</td>
+			
+			<td>
+				<?php echo trans('translate.' . Language::translateSlug($v->name, '_')); ?>
+
+			</td>				
+
+			<td>		
+				<button type="button" class="btn btn-primary solsoShowModal" 
+				data-toggle="modal" data-target="#solsoCrudModal" data-href="<?php echo URL::to('department/' . $v->id . '/edit'); ?>" data-modal-title="<?php echo trans('translate.edit_department'); ?>">
+					<i class="fa fa-edit"></i> <?php echo trans('translate.edit'); ?>
+
+				</button>
+			</td>			
+			
+			<td>		
+				<button type="button" class="btn btn-danger solsoConfirm" 
+				data-toggle="modal" data-target="#solsoDeleteModal" data-href="<?php echo URL::to('department/' . $v->id); ?>">
+					<i class="fa fa-trash"></i> <?php echo trans('translate.delete'); ?>
+
+				</button>
+			</td>
+		</tr>
+		
+	<?php endforeach; ?>
+	
+	</tbody>
+</table>

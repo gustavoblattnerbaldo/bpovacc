@@ -1,0 +1,50 @@
+<div class="col-md-6 col-lg-4">
+	<h3><?php echo trans('translate.change_user'); ?></h3>
+
+	<?php echo Form::open(array('role' => 'form')); ?>
+
+	
+		<div class="form-group">
+			<label for="email"><?php echo trans('translate.email'); ?></label>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-envelope"></i>
+				</span>
+				<input type="email" name="email" class="form-control required email" id="email" placeholder="email address" autocomplete="off" 
+				data-parsley-errors-container=".group1">
+			</div>
+
+			<div class="group1"></div>
+			<?php echo $errors->first('email', '<p class="error">:messages</p>');?>
+		</div>
+
+		<div class="form-group">
+			<label for="repeat-email"><?php echo trans('translate.repeat_email'); ?></label>
+			
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-envelope"></i>
+				</span>
+				<input type="email" name="repeat-email" class="form-control required email" id="repeat-email" placeholder="repeat email address" autocomplete="off" 
+				data-parsley-equalto="#email" data-parsley-errors-container=".group2">
+			</div>
+
+			<div class="group2"></div>
+			<?php echo $errors->first('repeat-email', '<p class="error">:messages</p>');?>
+		</div>
+
+		<div class="form-group">
+			<input type="hidden" name="action" value="email">
+			<input type="hidden" name="solsoStatus" value="<?php echo isset($alert) ? $alert : 'false';; ?>">
+			<button type="submit" class="btn btn-success solsoAjax" 
+				data-href="<?php echo URL::to('user/' . Auth::id()); ?>" data-method="put" data-return="tabAccount" 
+				data-message-title="<?php echo trans('translate.update_notification'); ?>" data-message-error="<?php echo trans('translate.validation_error_messages'); ?>" data-message-success="<?php echo trans('translate.data_was_updated'); ?>">
+				<i class="fa fa-save"></i> <?php echo trans('translate.save'); ?>
+
+			</button>
+		</div>	
+	
+	<?php echo Form::close(); ?>
+
+</div>

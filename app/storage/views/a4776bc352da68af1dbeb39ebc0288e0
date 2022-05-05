@@ -1,0 +1,63 @@
+<table class="table solsoTable" data-alert="<?php echo isset($alert) ? $alert : false; ?>">
+	<thead>
+		<tr>
+			<th><?php echo trans('translate.crt'); ?>.</th>
+			<th><?php echo trans('translate.language'); ?></th>
+			<th><?php echo trans('translate.short_name'); ?></th>
+			<th class="small"><?php echo trans('translate.action'); ?></th>
+			<th class="small"><?php echo trans('translate.action'); ?></th>
+			<th class="small"><?php echo trans('translate.action'); ?></th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<?php foreach($languages as $crt => $v): ?>
+			<tr>
+				<td>
+					<?php echo $crt+1; ?>
+
+				</td>
+
+				<td>
+					<?php echo $v->name; ?>
+
+				</td>
+
+				<td>
+					<?php echo $v->short; ?>
+
+				</td>
+
+				<td>		
+					<a class="btn solso-email" href="<?php echo URL::to('language/' . $v->id); ?>">
+						<i class="fa fa-book"></i> <?php echo trans('translate.translate'); ?>
+
+					</a>
+				</td>							
+				
+				<td>		
+					<button type="button" class="btn btn-primary solsoShowModal" 
+					data-toggle="modal" data-target="#solsoCrudModal" data-href="<?php echo URL::to('language/' . $v->id . '/edit'); ?>" data-modal-title="<?php echo trans('translate.edit_language'); ?>">
+						<i class="fa fa-edit"></i> <?php echo trans('translate.edit'); ?>
+
+					</button>
+				</td>						
+
+				<td>
+					<?php if($v->short == 'en'): ?>
+						<button class="btn btn-danger" disabled>
+							<i class="fa fa-trash"></i> <?php echo trans('translate.delete'); ?>
+
+						</button>
+					<?php else: ?>
+						<button class="btn btn-danger solsoConfirm" 
+						data-toggle="modal" data-target="#solsoDeleteModal" data-href="<?php echo URL::to('language/' . $v->id); ?>">
+							<i class="fa fa-trash"></i> <?php echo trans('translate.delete'); ?>
+
+						</button>
+					<?php endif; ?>
+				</td>
+			</tr>					
+		<?php endforeach; ?>
+	</tbody>
+</table>

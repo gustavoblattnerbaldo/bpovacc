@@ -1,0 +1,49 @@
+<?php $__env->startSection('content'); ?>
+
+	<div class="col-md-12">
+		<h1><i class="fa fa-cogs"></i> <?php echo trans('translate.settings'); ?></h1>
+	</div>		
+	
+	<div class="col-md-12">
+		<ul id="solsoTabs" class="nav nav-tabs" role="tablist">
+			<li class="active"><a href="#tabCompany" role="tab" data-toggle="tab"><?php echo trans('translate.company'); ?></a></li>
+			<li><a href="#tabInvitation" role="tab" data-toggle="tab"><?php echo trans('translate.invitation'); ?></a></li>
+			<li><a href="#tabTickets" role="tab" data-toggle="tab"><?php echo trans('translate.tickets'); ?></a></li>
+			<li><a href="#tabLanguage" role="tab" data-toggle="tab"><?php echo trans('translate.languages'); ?></a></li>
+			<li><a href="#tabAccount" role="tab" data-toggle="tab"><?php echo trans('translate.account'); ?></a></li>
+			<li><a href="#tabPassword" role="tab" data-toggle="tab"><?php echo trans('translate.password'); ?></a></li>
+			<li><a href="#tabEmail" role="tab" data-toggle="tab"><?php echo trans('translate.email'); ?></a></li>
+		</ul>
+		
+		<div class="row tab-content">
+			<div class="tab-pane active" id="tabCompany">
+				<?php echo $__env->make('admin.settings.company', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>		
+		
+			<div class="tab-pane" id="tabInvitation">
+				<?php echo $__env->make('admin.settings.invitation', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>
+
+			<div class="tab-pane" id="tabTickets">
+				<?php echo $__env->make('admin.settings.tickets', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>			
+			
+			<div class="tab-pane" id="tabLanguage">
+				<?php echo $__env->make('admin.settings.language', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>	
+
+			<div class="tab-pane" id="tabAccount">
+				<?php echo $__env->make('admin.settings.account', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>	
+
+			<div class="tab-pane" id="tabPassword">
+				<?php echo $__env->make('admin.settings.password', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>			
+			
+			<div class="tab-pane" id="tabEmail">
+				<?php echo $__env->make('admin.settings.email', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+			</div>	
+		</div>		
+	</div>
+		
+<?php $__env->stopSection(); ?>

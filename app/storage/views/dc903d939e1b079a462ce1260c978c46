@@ -1,0 +1,87 @@
+<table class="table solsoTable" data-alert="<?php echo isset($alert) ? $alert : false; ?>" data-all="<?php echo sizeof($replies); ?>">
+	<thead>
+		<tr>
+			<th><?php echo trans('translate.crt'); ?>.</th>
+			
+			<?php if($user->role_id == 1): ?>
+				<th><?php echo trans('translate.sender'); ?></th>
+			<?php endif; ?>
+			
+			<th class="col-md-3"><?php echo trans('translate.title'); ?></th>
+			<th><?php echo trans('translate.content'); ?></th>
+			<th class="small text-center"><?php echo trans('translate.created_at'); ?></th>
+			<th class="small"><?php echo trans('translate.state'); ?></th>
+			
+			<th class="small"><?php echo trans('translate.action'); ?></th>
+			
+			<?php if( $userIsClient ): ?>
+				<th class="small"><?php echo trans('translate.action'); ?></th>
+			<?php endif; ?>
+		</tr>
+	</thead>
+	
+	<tbody>
+	
+	<?php foreach($replies as $crt => $v): ?>
+		<tr>
+			<td>
+				<?php echo $crt+1; ?>
+
+			</td>
+			
+			<?php if($user->role_id == 1): ?>
+				<td>
+					<?php if($v->role_id == 3): ?>
+						<label class="label-client"><?php echo trans('translate.client'); ?>: <?php echo $v->name; ?></label>
+					<?php else: ?>
+						<label class="label-owner"><?php echo trans('translate.staff'); ?>: <?php echo $v->name; ?></label>
+					<?php endif; ?>	
+					
+				</td>
+			<?php endif; ?>
+			
+			<td>
+				<?php echo $v->title; ?>
+
+			</td>		
+
+			<td>
+				<?php echo strip_tags(substr($v->content, 0, 100)); ?>
+
+			</td>
+			
+			<td class="text-center">
+				<?php echo $v->created_at; ?>
+
+			</td>				
+
+			<td>
+				<?php if($v->state == 0): ?>
+					<label class="label-orange"><?php echo trans('translate.unread'); ?></label>
+				<?php else: ?>
+					<label class="label-green"><?php echo trans('translate.read'); ?></label>
+				<?php endif; ?>
+			</td>			
+			
+			<td>
+				<button type="button" class="btn btn-info solsoShowModal" 
+				data-toggle="modal" data-target="#solsoCrudModal" data-href="<?php echo URL::to('reply/' . $v->id); ?>" data-modal-title="<?php echo trans('translate.show_reply'); ?>">
+					<i class="fa fa-eye"></i> <?php echo trans('translate.show'); ?>
+
+				</button>
+			</td>	
+			
+			<?php if( $userIsClient ): ?>
+				<td>		
+					<button type="button" class="btn btn-danger solsoConfirm" 
+					data-toggle="modal" data-target="#solsoDeleteModal" data-href="<?php echo URL::to('reply/' . $v->id); ?>">
+						<i class="fa fa-trash"></i> <?php echo trans('translate.delete'); ?>
+
+					</button>
+				</td>		
+			<?php endif; ?>
+		</tr>
+	<?php endforeach; ?>
+	
+	</tbody>
+</table>

@@ -1,0 +1,24 @@
+<?php echo $__env->make('begin', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<header>
+	<?php echo $__env->make('admin.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+</header>
+
+<main class="body slide">
+	<aside class="sidebar show perfectScrollbar">
+		<?php echo $__env->make('admin.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	</aside>
+	
+	<div class="container-fluid">
+	<div class="row">
+		<?php echo $__env->yieldContent('content'); ?>
+		
+		<?php echo $__env->make('assets.modals.modal-ban', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('assets.modals.modal-remove-ban', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('assets.modals.modal-crud', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		<?php echo $__env->make('assets.modals.modal-delete', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>		
+	</div>
+	</div>
+</main>
+
+<?php echo $__env->make('end', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

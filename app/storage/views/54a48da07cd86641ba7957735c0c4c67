@@ -1,0 +1,91 @@
+<div class="col-md-12">
+	<h1>
+		<?php echo $ticket->title; ?>
+
+	</h1>
+</div>
+
+<?php if($workers): ?>
+	<div class="col-md-12">
+		<table class="table table-striped" data-alert="<?php echo isset($alert) ? $alert : false; ?>">
+		<caption><?php echo trans('translate.staff_assigned_ticket'); ?></caption>
+		<tbody>
+			<?php if($ticket->staff_id != 0): ?>
+				<tr>
+					<td>
+						<?php echo $ticket->staff; ?>
+
+					</td>
+				</tr>	
+			<?php endif; ?>	
+		</tbody>
+		</table>
+		
+		<?php if($ticket->staff_id == 0): ?>
+			<div role="alert" class="alert alert-warning">
+				<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo trans('translate.no_staff_assigned'); ?>
+
+			</div>
+		<?php endif; ?>	
+	</div>
+<?php endif; ?>
+
+<div class="col-md-12">
+	<?php if($workers): ?>
+		<table class="table table-striped">
+		<caption><?php echo trans('translate.staff'); ?></caption>
+		<thead>
+			<th><?php echo trans('translate.crt'); ?>.</th>
+			<th class="col-md-10"><?php echo trans('translate.staff'); ?></th>
+			<th class="col-md-2"><?php echo trans('translate.action'); ?></th>
+		</thead>
+		
+		<tbody>
+			<?php foreach($workers as $crt => $info): ?>
+				<tr>
+					<td>
+						<?php echo $crt+1; ?>
+
+					</td>		
+
+					<td>
+						<?php echo $info->name; ?>
+
+					</td>
+					
+					<td class="text-right">
+						<?php echo Form::open(array('url' => 'ticket/manage-worker/' . $info->staffID, 'role' => 'form', 'method' => 'POST', 'class' => 'solsoForm' )); ?>
+
+							<input type="hidden" name="ticketID" value="<?php echo $ticket->id; ?>">
+							
+							<?php if( $ticket->staff_id == $info->staffID ): ?>
+								<?php echo trans('translate.already_assigned'); ?>
+
+							<?php else: ?>	
+								<button type="button" class="btn btn-primary solsoSave"
+								data-message-title="<?php echo trans('translate.update_notification'); ?>" data-message-error="<?php echo trans('translate.validation_error_messages'); ?>" 
+								data-message-success="<?php echo trans('translate.data_was_updated'); ?>" data-message-warning="<?php echo trans('translate.worker_is_already_assign'); ?>">
+									<?php if($ticket->staff_id == 0): ?>
+										<i class="fa fa-plus"></i> <?php echo trans('translate.assign'); ?>
+
+									<?php else: ?>
+										<i class="fa fa-share"></i> <?php echo trans('translate.replace'); ?>
+
+									<?php endif; ?>
+								</button>
+							<?php endif; ?>
+							
+						<?php echo Form::close(); ?>	
+
+					</td>
+				</tr>	
+			<?php endforeach; ?>
+		</tbody>
+		</table>
+	<?php else: ?>
+		<div role="alert" class="alert alert-warning">
+			<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo trans('translate.no_staff_department'); ?>
+
+		</div>
+	<?php endif; ?>	
+</div>	
