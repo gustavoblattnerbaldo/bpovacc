@@ -1,8 +1,11 @@
 # bpovacc
+___________________________________________________________________________________________________________
 Requisitos: 
-Servidor Linux com cPanel (cPanel.net), Apache, Php 5.4 a 5.5, Banco MySQL, phpMyAdmin 
+Servidor Linux com cPanel (cPanel.net)
+Apache, Php 5.4 a 5.5, Banco MySQL, phpMyAdmin 
 Acesse o cPanel - o gerenciador de Banco de dados MySQL, crie o Banco de Dados MySQL, o Usuário de acesso ao 
 banco + senha, depois atribua todas as permissões do usuário ao Banco. 
+_____________________________________________________________________________________________________________
 Abra o phpMyAdmin, selecione o banco que criou e importe a base de dados que está dentro da pasta /INSTALACAO 
 Arquivo de conexão com o banco: 
 Na pasta /Script, acesse: 
@@ -20,5 +23,6 @@ outro endereço.
  'collation' => 'utf8_unicode_ci', 
  'prefix' => '', 
  ) 
+ ____________________________________________________________________________________________________________
 Agora compacte o conteúdo da pasta /Script (.zip) e faça o upload deste arquivo zipado pelo Gerenciador de 
 Arquivos do cPanel e assim que finalizar o upload descompacte o .zip lá pelo gerenciador mesmo.
