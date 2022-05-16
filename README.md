@@ -1,4 +1,22 @@
-# bpovacc
+# BPO -VACC ------------> Ticket´s
+Sistema consiste em Gerenciamento de Ticket de Chamados (Solicitações de serviços que poderam ser acompanhados
+Via sistema)
+Modulos
+-------------------
+1 - Cadastros 
+1.1 - Clientes 
+1.2 - Funcionarios
+1.3 - Empresa
+1.4 - Departamentos
+-------------------
+2 - Movimentação 
+2.1 - Abertura de solicitação pelo Cliente
+2.2 - Acompanhamento por Status
+2.3 - Fechamento pelo responsavel.
+--------------------
+3 - Relatórios e Estatisticas
+3.1 - Dashboard de acompanhamento.
+3.2 - Relatorios Gerenciais.
 ___________________________________________________________________________________________________________
 Requisitos: 
 Servidor Linux com cPanel (cPanel.net)
