@@ -1,4 +1,4 @@
-<div class="col-md-12 col-lg-8">
+<div class="col-md-12 col-lg-12">
 	<h3>{{ trans('translate.ticket_priority') }}</h3>
 	<div class="row">
 		<div class="col-md-6">
@@ -10,11 +10,11 @@
 
 				<span class="input-group-btn">
 					<input type="hidden" name="solsoStatus" value="{{ isset($alert) ? $alert : 'false'; }}">
-					<button type="submit" class="btn btn-success solsoAjax" 
+					<button type="submit" class="btn modal-btn-save solsoAjax" 
 						data-href="{{ URL::to('ticketPriority') }}" data-method="post" data-return="tabTickets" 
 						data-message-title="{{ trans('translate.create_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" 
 						data-message-success="{{ trans('translate.data_was_saved') }}" data-message-warning="{{ trans('translate.value_already_exist') }}">
-						<i class="fa fa-save"></i> {{ trans('translate.save') }}
+						<i class="fa fa-save"></i> Salvar
 					</button>
 				</span>	
 			</div>
@@ -31,10 +31,10 @@
 		<table class="table top20" data-alert="{{ isset($alert) ? $alert : false }}">
 			<thead>
 				<tr>
-					<th>{{ trans('translate.crt') }}.</th>
-					<th>{{ trans('translate.name') }}</th>
-					<th class="col-md-4 col-4">{{ trans('translate.action') }}</th>
-					<th class="small">{{ trans('translate.action') }}</th>
+					<th class="col-md-1 col-1">{{ trans('translate.crt') }}.</th>
+					<th class="col-md-7 col-7">{{ trans('translate.name') }}</th>
+					<th class="col-md-4 col-4"></th>
+					<th class="small"></th>
 				</tr>
 			</thead>
 			
@@ -59,7 +59,7 @@
 									
 									<span class="input-group-btn">
 										<input type="hidden" name="oldValue" value="{{ $v->name }}">
-										<button type="submit" class="btn btn-success solsoAjax" 
+										<button type="submit" class="btn btn-yellow solsoAjax" 
 											data-href="{{ URL::to('ticketPriority/' . $v->id) }}" data-method="put" data-return="tabTickets" 
 											data-message-title="{{ trans('translate.create_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" 
 											data-message-success="{{ trans('translate.data_was_saved') }}" data-message-warning="{{ trans('translate.value_already_exist') }}">
@@ -73,9 +73,9 @@
 						</td>
 						
 						<td>
-							<a class="btn btn-danger solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" 
+							<a class="btn btn-geral solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" 
 							data-href="{{ URL::to('ticketPriority/' . $v->id) }}" data-return="tabTickets">
-								<i class="fa fa-trash"></i> {{ trans('translate.delete') }}
+								<i class="fa fa-trash"></i> 
 							</a>
 						</td>
 					</tr>
@@ -97,7 +97,7 @@
 </div>
 
 
-<div class="col-md-12 col-lg-8">
+<div class="col-md-12 col-lg-12">
 	<h3>{{ trans('translate.ticket_type') }}</h3>
 	<div class="row">
 		<div class="col-md-6">
@@ -109,11 +109,11 @@
 
 				<span class="input-group-btn">
 					<input type="hidden" name="solsoStatus" value="{{ isset($alert) ? $alert : 'false'; }}">
-					<button type="submit" class="btn btn-success solsoAjax" 
+					<button type="submit" class="btn modal-btn-save solsoAjax" 
 						data-href="{{ URL::to('ticketType') }}" data-method="post" data-return="tabTickets" 
 						data-message-title="{{ trans('translate.create_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" 
 						data-message-success="{{ trans('translate.data_was_saved') }}" data-message-warning="{{ trans('translate.value_already_exist') }}">
-						<i class="fa fa-save"></i> {{ trans('translate.save') }}
+						<i class="fa fa-save"></i> Salvar
 					</button>
 				</span>	
 			</div>
@@ -130,10 +130,10 @@
 		<table class="table top20" data-alert="{{ isset($alert) ? $alert : false }}">
 			<thead>
 				<tr>
-					<th>{{ trans('translate.crt') }}.</th>
-					<th>{{ trans('translate.name') }}</th>
-					<th class="col-md-4 col-4">{{ trans('translate.action') }}</th>
-					<th class="small">{{ trans('translate.action') }}</th>
+					<th class="col-md-1 col-1">{{ trans('translate.crt') }}.</th>
+					<th class="col-md-7 col-7">{{ trans('translate.name') }}</th>
+					<th class="col-md-4 col-4"></th>
+					<th class="small"></th>
 				</tr>
 			</thead>
 			
@@ -158,7 +158,7 @@
 									
 									<span class="input-group-btn">
 										<input type="hidden" name="oldValue" value="{{ $v->name }}">
-										<button type="submit" class="btn btn-success solsoAjax" 
+										<button type="submit" class="btn btn-yellow solsoAjax" 
 											data-href="{{ URL::to('ticketType/' . $v->id) }}" data-method="put" data-return="tabTickets" 
 											data-message-title="{{ trans('translate.create_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" 
 											data-message-success="{{ trans('translate.data_was_saved') }}" data-message-warning="{{ trans('translate.value_already_exist') }}">
@@ -172,9 +172,9 @@
 						</td>
 						
 						<td>
-							<a class="btn btn-danger solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" 
+							<a class="btn btn-geral solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" 
 							data-href="{{ URL::to('ticketType/' . $v->id) }}" data-return="tabTickets">
-								<i class="fa fa-trash"></i> {{ trans('translate.delete') }}
+								<i class="fa fa-trash"></i>
 							</a>
 						</td>
 					</tr>
@@ -195,7 +195,7 @@
 	</div>
 </div>
 
-<div class="col-md-12 col-lg-8">
+<div class="col-md-12 col-lg-12">
 	<h3>{{ trans('translate.ticket_status') }}</h3>
 
 	<div class="row">
@@ -208,7 +208,7 @@
 
 				<span class="input-group-btn">
 					<input type="hidden" name="solsoStatus" value="{{ isset($alert) ? $alert : 'false'; }}">
-					<button type="submit" class="btn btn-success solsoAjax" 
+					<button type="submit" class="btn modal-btn-save solsoAjax" 
 						data-href="{{ URL::to('ticketStatus') }}" data-method="post" data-return="tabTickets" 
 						data-message-title="{{ trans('translate.create_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" 
 						data-message-success="{{ trans('translate.data_was_saved') }}" data-message-warning="{{ trans('translate.value_already_exist') }}">
@@ -229,10 +229,10 @@
 		<table class="table top20" data-alert="{{ isset($alert) ? $alert : false }}">
 			<thead>
 				<tr>
-					<th>{{ trans('translate.crt') }}.</th>
-					<th>{{ trans('translate.name') }}</th>
-					<th class="col-md-4 col-4">{{ trans('translate.action') }}</th>
-					<th class="small">{{ trans('translate.action') }}</th>
+					<th class="col-md-1 col-1">{{ trans('translate.crt') }}.</th>
+					<th class="col-md-7 col-7">{{ trans('translate.name') }}</th>
+					<th class="col-md-4 col-4"></th>
+					<th></th>
 				</tr>
 			</thead>
 			
@@ -257,7 +257,7 @@
 									
 									<span class="input-group-btn">
 										<input type="hidden" name="oldValue" value="{{ $v->name }}">
-										<button type="submit" class="btn btn-success solsoAjax" 
+										<button type="submit" class="btn btn-yellow solsoAjax" 
 											data-href="{{ URL::to('ticketStatus/' . $v->id) }}" data-method="put" data-return="tabTickets" 
 											data-message-title="{{ trans('translate.create_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" 
 											data-message-success="{{ trans('translate.data_was_saved') }}" data-message-warning="{{ trans('translate.value_already_exist') }}">
@@ -271,9 +271,9 @@
 						</td>
 						
 						<td>
-							<a class="btn btn-danger solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" 
+							<a class="btn btn-geral solsoConfirm" data-toggle="modal" data-target="#solsoDeleteModal" 
 							data-href="{{ URL::to('ticketStatus/' . $v->id) }}" data-return="tabTickets">
-								<i class="fa fa-trash"></i> {{ trans('translate.delete') }}
+								<i class="fa fa-trash"></i>
 							</a>
 						</td>
 					</tr>

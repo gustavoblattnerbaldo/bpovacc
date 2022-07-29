@@ -1,24 +1,34 @@
-<div class="col-md-12">
-	
-	<h3>{{ trans('translate.department') }}</h3>	
-	<div class="row">
-		{{ Form::open(array('url' => 'department/' . $department->id, 'role' => 'form', 'method' => 'PUT', 'class' => 'solsoForm', 'data-alert' => isset($alert) ? $alert : false )) }}
+{{ Form::open(array('url' => 'department/' . $department->id, 'role' => 'form', 'method' => 'PUT', 'class' => 'solsoForm', 'data-alert' => isset($alert) ? $alert : false )) }}
+<div class="modal-dialog modal-md">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title"> Editar Departamento</h4>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+		</div>
 
-			<div class="form-group col-md-4">
-				<label for="name">{{ trans('translate.name') }}</label>
-				<input type="text" name="name" class="form-control required" autocomplete="off" value="{{ trans('translate.' . Language::translateSlug($department->name, '_')) }}">
+<div class="modal-body">
+			<div class="row">
+				<div class="form-group col-md-8">
+					<label for="name">{{ trans('translate.name') }}</label>
+					<input type="text" name="name" class="form-control required" autocomplete="off" value="{{ $department->name }}">
 
-				<?php echo $errors->first('name', '<p class="error">:messages</p>');?>
+					<?php echo $errors->first('name', '<p class="error">:messages</p>');?>
+				</div>
 			</div>
-
-			<div class="form-group col-md-12">
-				<input type="hidden" name="oldValue" value="{{ $department->name }}">
-				<button type="button" class="btn btn-success solsoSave" 
-				data-message-title="{{ trans('translate.update_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" data-message-success="{{ trans('translate.data_was_updated') }}">
-					<i class="fa fa-save"></i> {{ trans('translate.save') }}
-				</button>
-			</div>
+		</div>
 		
-		{{ Form::close() }}		
-	</div>
+		<div class="modal-footer">
+		<button type="button" class="btn modal-btn-save solsoSave" 
+						data-message-title="{{ trans('translate.create_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" data-message-success="{{ trans('translate.data_was_saved') }}">
+						<i class="fa fa-save"></i> {{ trans('translate.save') }}
+					</button>
+			<button type="reset" class="btn btn-default" data-dismiss="modal">
+				{{ trans('translate.cancel') }}
+			</button>
+		</div>
+		</div>
 </div>
+{{ Form::close() }}
+

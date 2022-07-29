@@ -1,26 +1,50 @@
 <div class="col-md-12">
 	@if(Session::has('success'))
-		<div role="alert" class="alert alert-success top20">
-			<strong>{{ trans('translate.message') }}: </strong> {{ Session::get('success') }} !
-		</div>		
+	<div class="col-md-3" style="
+		position: absolute; 
+		z-index: 1;
+    right: 0%;
+    margin-top: -40px;">
+		<div role="alert" class="alert alert-success">
+				<strong>{{ trans('translate.message') }}: </strong> {{ Session::get('success') }} !
+			</div>	
+	</div>	
 	@endif	
 	
 	@if(Session::has('message'))
-		<div role="alert" class="alert alert-info top20">
+	<div class="col-md-3" style="
+		position: absolute; 
+		z-index: 1;
+    right: 0%;
+    margin-top: -40px;">
+		<div role="alert" class="alert alert-info">
 			<strong>{{ trans('translate.message') }}: </strong> {{ Session::get('message') }} !
-		</div>		
+		</div>
+	</div>		
 	@endif		
 
 	@if(Session::has('warning'))
-		<div role="alert" class="alert alert-warning top20">
+	<div class="col-md-3" style="
+		position: absolute; 
+		z-index: 1;
+    right: 0%;
+    margin-top: -40px;">
+		<div role="alert" class="alert alert-warning">
 			<strong>{{ trans('translate.message') }}: </strong> {{ Session::get('warning') }} !
-		</div>		
+		</div>	
+	</div>	
 	@endif	
 
 	@if(Session::has('error'))
-		<div role="alert" class="alert alert-danger top20">
+	<div class="col-md-3" style="
+		position: absolute; 
+		z-index: 1;
+    right: 0%;
+    margin-top: -40px;">
+		<div role="alert" class="alert alert-danger">
 			<strong>{{ trans('translate.message') }}: </strong> {{ Session::get('error') }} !
-		</div>		
+		</div>	
+	</div>	
 	@endif	
 
 	{{ Session::forget('message') }}

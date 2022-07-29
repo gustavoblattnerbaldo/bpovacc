@@ -1,0 +1,56 @@
+/* === VALIDATION === */
+input.parsley-success,
+select.parsley-success,
+textarea.parsley-success {
+  color: #468847;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+input.parsley-error,
+select.parsley-error,
+textarea.parsley-error {
+  color: #b94a48;
+  background-color: #fff;
+  border: 2px solid #dc002e !important;
+}
+.parsley-errors-list {
+  padding: 0;
+  opacity: 0;
+  -moz-opacity: 0;
+  -webkit-opacity: 0;
+  transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in-;
+  -moz-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+}
+.parsley-errors-list li,
+.parsley-required,
+.parsley-type,
+.error {
+  background: none; /* aici se schimba ptr culoare*/
+  color: #dc002e;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.42857;
+  margin-top: 4px;
+  padding: 2px 4px;
+}
+.parsley-errors-list.filled {
+  opacity: 1;
+}
+.success {
+  background: green;
+  border: 1px solid green;
+  box-shadow: 0 0 0 1px #ffffff inset;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.42857;
+  margin-top: 10px;
+  padding: 15px 10px;
+}
+.required {
+  border-left: 2px solid #dc002e;
+}
+/* === END VALIDATION === */

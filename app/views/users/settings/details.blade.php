@@ -13,7 +13,7 @@
 		<div class="form-group">
 			<input type="hidden" name="action" value="details">
 			<input type="hidden" name="solsoStatus" value="{{ isset($alert) ? $alert : 'false'; }}">
-			<button type="submit" class="btn btn-success solsoAjax" 
+			<button type="submit" class="btn modal-btn-save solsoAjax" 
 				data-href="{{ URL::to('user/' . Auth::id()) }}" data-method="put" data-return="tabDetails" 
 				data-message-title="{{ trans('translate.update_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" data-message-success="{{ trans('translate.data_was_updated') }}">
 				<i class="fa fa-save"></i> {{ trans('translate.save') }}

@@ -1,12 +1,9 @@
 @section('content')
 
 	<div class="login">
-		<header>
-			<h1 class="text-center">{{ trans('translate.app_name') }}</h1>
-		</header>
 
 		<div class="authForm">
-			<h3 class="text-center">{{ trans('translate.forgot_password') }}</h3>
+			<h3 class="text-center title-white">{{ trans('translate.forgot_password') }}</h3>
 					
 			{{ Form::open(array('url' => 'reset', 'role' => 'form', 'id' => 'signinForm', 'class' => 'validateJSForm form-signin')) }}
 			
@@ -19,7 +16,7 @@
 				</div>	
 				
 				<div class="form-group">
-					<button class="btn solso-pdf btn-block" type="submit">
+					<button class="btn solso-email btn-block" type="submit">
 						<i class="fa fa-share"></i> {{ trans('translate.send_password') }}
 					</button>
 				</div>

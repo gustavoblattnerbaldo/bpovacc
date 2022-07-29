@@ -1,14 +1,14 @@
 @section('content')
 
-<div class="container">
+<div class="container bg-convit">
 	<div class="col-md-12">
-	<h3>{{ trans('translate.guest_ticket') }}</h3>
+	<h3 class="text-center title-white">{{ trans('translate.guest_ticket') }}</h3>
 
 	<div class="row">
 		{{ Form::open(array('url' => 'website/send-ticket', 'role' => 'form', 'class' => 'validateJSForm top20')) }}
 
-			<div class="form-group col-md-6">
-				<label for="name">{{ trans('translate.name') }}</label>
+			<div class="form-group col-md-12">
+				<label class="title-white" for="name">{{ trans('translate.name') }}</label>
 				<input type="text" name="name" class="form-control required"
 				autocomplete="off" required autofocus placeholder="{{ trans('translate.name') }}" value="{{ Input::old('name') }}">
 
@@ -16,23 +16,15 @@
 			</div>
 
 			<div class="form-group col-md-6">
-				<label for="email">{{ trans('translate.email') }}</label>
+				<label class="title-white" for="email">{{ trans('translate.email') }}</label>
 				<input type="email" id="email" name="email" class="form-control required"
 				autocomplete="off" placeholder="{{ trans('translate.email') }}" value="{{ Input::old('email') }}">
 
 				<?php echo $errors->first('email', '<p class="error">:messages</p>');?>
 			</div>
 
-			<div class="form-group col-md-6">
-				<label for="title"> {{ trans('translate.title') }} </label>
-				<input type="text" name="title" class="form-control required"
-				autocomplete="off" placeholder="{{ trans('translate.title') }}" value="{{ Input::old('title') }}">
-
-				<?php echo $errors->first('title', '<p class="error">:messages</p>');?>
-			</div>
-
 			<div class="form-group col-md-2">
-				<label for="department_id">{{ trans('translate.department') }}</label>
+				<label class="title-white" for="department_id">{{ trans('translate.department') }}</label>
 				<select name="department_id" class="form-control required">
 					<option value="" selected>{{ trans('translate.choose') }}</option>
 
@@ -46,7 +38,7 @@
 			</div>
 
 			<div class="form-group col-md-2">
-				<label for="type_id">{{ trans('translate.ticket_type') }}</label>
+				<label class="title-white" for="type_id">{{ trans('translate.ticket_type') }}</label>
 				<select name="type_id" class="form-control required">
 					<option value="" selected>{{ trans('translate.choose') }}</option>
 
@@ -60,7 +52,7 @@
 			</div>
 
 			<div class="form-group col-md-2">
-				<label for="priority_id">{{ trans('translate.priority') }}</label>
+				<label class="title-white" for="priority_id">{{ trans('translate.priority') }}</label>
 				<select name="priority_id" class="form-control required">
 					<option value="" selected>{{ trans('translate.choose') }}</option>
 
@@ -74,7 +66,15 @@
 			</div>
 
 			<div class="form-group col-md-12">
-				<label for="content"> {{ trans('translate.message') }} </label>
+				<label class="title-white" for="title"> {{ trans('translate.title') }} </label>
+				<input type="text" name="title" class="form-control required"
+				autocomplete="off" placeholder="{{ trans('translate.title') }}" value="{{ Input::old('title') }}">
+
+				<?php echo $errors->first('title', '<p class="error">:messages</p>');?>
+			</div>
+			
+			<div class="form-group col-md-12">
+				<label class="title-white" for="content"> {{ trans('translate.message') }} </label>
 				<textarea name="content" class="form-control required solsoEditor" rows="7" autocomplete="off">{{ Input::old('content') }}</textarea>
 
 				<?php echo $errors->first('content', '<p class="error">:messages</p>');?>
@@ -82,7 +82,7 @@
 
 			<div class="form-group col-md-12">
 				<input type="hidden" name="guest" value="1">
-				<button type="submit" class="btn btn-success">
+				<button type="submit" class="btn btn-yellow">
 					<i class="fa fa-share"></i> {{ trans('translate.send') }}
 				</button>
 			</div>

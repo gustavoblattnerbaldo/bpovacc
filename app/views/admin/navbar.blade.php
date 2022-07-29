@@ -9,22 +9,20 @@
 		</button>
 
 		<div class="brand">
-			<a class="navbar-brand" href="#"><span>{{ trans('translate.app_name') }}</span></a>
-			<a class="toogle pull-right"><i class="fa fa-chevron-left"></i> </a>
+			<span class="logo-white"><img src="{{URL::asset('public/img/logo_white.png')}}" alt="Logo"></span>
+			<a class="toogle pull-right arrow"><i class="fa fa-chevron-left" style='color: #f7b545'></i> </a>
 		</div>		
 	</div>
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li>
-				<p class="navbar-text">{{ trans('translate.signed_in_as') }} {{ $user->name }}</p>
-			</li>
 		</ul>
 		
-		<ul class="nav navbar-nav navbar-right">
+		
+		<ul class="nav navbar-nav navbar-right logout-btn">
 			<li>
 				<a href="<?php echo URL::to('logout');?>">
-					<i class="fa fa-sign-out"></i> {{ trans('translate.logout') }}
+				<i class='fa fa-sign-out' style='color: white'></i> Sair
 				</a>
 			</li>
 		</ul>

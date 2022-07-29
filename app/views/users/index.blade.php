@@ -9,7 +9,7 @@
 		@include('users.sidebar')
 	</aside>
 	
-	<div class="container-fluid">
+	<div class="container-fluid body-main">
 	<div class="row">
 		@yield('content')
 		

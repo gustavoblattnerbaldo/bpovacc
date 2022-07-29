@@ -1,21 +1,21 @@
-<table class="table solsoTable" data-alert="{{ isset($alert) ? $alert : false }}" data-all="{{ sizeof($replies) }}">
+<table class="table solsoTable table-striped" data-alert="{{ isset($alert) ? $alert : false }}" data-all="{{ sizeof($replies) }}">
 	<thead>
 		<tr>
 			<th>{{ trans('translate.crt') }}.</th>
 			
 			@if ($user->role_id == 1)
-				<th>{{ trans('translate.sender') }}</th>
+				<th>Enviado por</th>
 			@endif
 			
 			<th class="col-md-3">{{ trans('translate.title') }}</th>
 			<th>{{ trans('translate.content') }}</th>
-			<th class="small text-center">{{ trans('translate.created_at') }}</th>
+			<th class="small text-center">Criado em</th>
 			<th class="small">{{ trans('translate.state') }}</th>
 			
-			<th class="small">{{ trans('translate.action') }}</th>
+			<th style="max-width: 25px"></th>
 			
 			@if ( $userIsClient )
-				<th class="small">{{ trans('translate.action') }}</th>
+				<th style="max-width: 35px"></th>
 			@endif
 		</tr>
 	</thead>
@@ -53,24 +53,24 @@
 
 			<td>
 				@if ($v->state == 0)
-					<label class="label-orange">{{ trans('translate.unread') }}</label>
+					<label class="label-red">{{ trans('translate.unread') }}</label>
 				@else
 					<label class="label-green">{{ trans('translate.read') }}</label>
 				@endif
 			</td>			
 			
 			<td>
-				<button type="button" class="btn btn-info solsoShowModal" 
+				<button type="button" class="btn btn-info btn-geral solsoShowModal" 
 				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('reply/' . $v->id) }}" data-modal-title="{{ trans('translate.show_reply') }}">
-					<i class="fa fa-eye"></i> {{ trans('translate.show') }}
+					<i class="fa fa-eye"></i>
 				</button>
 			</td>	
 			
 			@if ( $userIsClient )
 				<td>		
-					<button type="button" class="btn btn-danger solsoConfirm" 
+					<button type="button" class="btn btn-danger btn-geral solsoConfirm" 
 					data-toggle="modal" data-target="#solsoDeleteModal" data-href="{{ URL::to('reply/' . $v->id) }}">
-						<i class="fa fa-trash"></i> {{ trans('translate.delete') }}
+						<i class="fa fa-trash"></i>
 					</button>
 				</td>		
 			@endif

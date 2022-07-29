@@ -47,6 +47,15 @@ class ClientController extends \BaseController {
 		
 		return View::make('admin.clients.edit', $data);
 	}
+
+	public function password($id)
+	{
+		$data = array(
+			'client'	=> User::find($id),
+		);
+		
+		return View::make('admin.clients.password', $data);
+	}
 	/* === END VIEW === */
 	
 	

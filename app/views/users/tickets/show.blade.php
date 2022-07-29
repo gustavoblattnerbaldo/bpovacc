@@ -1,3 +1,14 @@
+<div class="modal-dialog modal-lg">
+	<div class="modal-content">
+		<div class="modal-header">
+			<h4 class="modal-title"> Exibir Ticket</h4>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+		</div>
+
+<div class="modal-body">
+			<div class="row">
 <div class="col-md-12">
 	<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
 		<div class="panel panel-default">
@@ -76,7 +87,7 @@
 	
 	@if ($ticket->state == 0 && $user->role_id != 3)
 		{{ Form::open(array('url' => 'ticket/' . $ticket->id .'/mark-as-read', 'role' => 'form', 'method' => 'POST')) }}
-			<button type="button" class="btn btn-success solsoSave"
+			<button type="button" class="btn modal-btn-save solsoSave"
 			data-message-title="{{ trans('translate.update_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" data-message-success="{{ trans('translate.ticket_was_mark_as_read') }}">
 				<i class="fa fa-check"></i> {{ trans('translate.mark_as_read') }}
 			</button>
@@ -85,7 +96,7 @@
 	
 	
 	@if ($ticket->number == 0 && $user->role_id != 3)
-		<div role="alert" class="alert alert-info top40">
+		<div role="alert" class="alert alert-warning top40">
 			<strong>{{ trans('translate.message') }}: </strong> {{ trans('translate.reply_notification') }}
 		</div>			
 	
@@ -109,7 +120,7 @@
 			
 			<div class="form-group">
 				<input type="hidden" name="userID" value="{{ $ticket->client_id }}">
-				<button type="button" class="btn btn-success solsoSave" 
+				<button type="button" class="btn modal-btn-save solsoSave" 
 				data-message-title="{{ trans('translate.update_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" data-message-success="{{ trans('translate.message_was_sent') }}">
 					<i class="fa fa-share"></i> {{ trans('translate.send') }}
 				</button>
@@ -167,4 +178,13 @@
 		</div>		
 	@endif	
 		
+</div>
+</div>
+		</div>
+		<div class="modal-footer">
+			<button type="reset" class="btn btn-default" data-dismiss="modal">
+				{{ trans('translate.cancel') }}
+			</button>
+		</div>
+		</div>
 </div>

@@ -56,6 +56,19 @@ class StaffController extends \BaseController {
 		return View::make('admin.staff.edit', $data);
 	}
 	/* === END VIEW === */
+
+	public function password($id)
+	{
+		$staff = new Staff;
+		
+		$data = array(
+			'staff' 		=> $staff->getOne($id),
+			'departments' 	=> Department::all()
+		);
+		
+		return View::make('admin.staff.password', $data);
+	}
+	/* === END VIEW === */
 	
 	
 	/* === C.R.U.D. === */

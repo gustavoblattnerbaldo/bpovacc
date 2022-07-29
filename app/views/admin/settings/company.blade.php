@@ -1,10 +1,10 @@
 <div class="col-md-12 ">
-	<h3>{{ trans('translate.company') }}</h3>
+	<h3>Empresa</h3>
 </div>		
 
 {{ Form::open(array('id' => 'company', 'role' => 'form', 'class' => 'solsoForm')) }}
 	
-	<div class="col-md-6 col-lg-4">
+	<div class="col-md-6 col-lg-6">
 		<div class="form-group">
 			<label for="name">{{ trans('translate.name') }}</label>
 			<input type="text" name="name" class="form-control required" autocomplete="off" value="{{ Input::old('name') ? Input::old('name') : $company->name }}">
@@ -41,7 +41,7 @@
 		</div>
 	</div>
 	
-	<div class="col-md-6 col-lg-4">		
+	<div class="col-md-6 col-lg-6">		
 		<div class="form-group">
 			<label for="address">{{ trans('translate.address') }}</label>
 			<input type="text" name="address" class="form-control required" autocomplete="off" value="{{ Input::old('address') ? Input::old('address') : $company->address }}">
@@ -72,7 +72,6 @@
 
 		<div class="form-group">
 			<label for="website">{{ trans('translate.website') }}</label>
-			<span class="pull-right">http://www.domain.com</span>
 			<input type="url" name="website" class="form-control" autocomplete="off" value="{{ Input::old('website') ? Input::old('website') : $company->website }}">
 			
 			<?php echo $errors->first('website', '<p class="error">:messages</p>');?>
@@ -80,7 +79,7 @@
 	</div>
 	<div class="clearfix"></div>
 	
-	<div class="col-md-12 col-lg-8">
+	<div class="col-md-12 col-lg-12">
 		<div class="form-group">
 			<label for="description">{{ trans('translate.description') }}</label>
 			<textarea name="description" class="form-control" rows="7" autocomplete="off">{{ Input::old('description') ? Input::old('description') : $company->description }}</textarea>
@@ -89,7 +88,7 @@
 	
 	<div class="form-group col-md-12">
 		<input type="hidden" name="solsoStatus" value="{{ isset($status) ? $status : 'false'; }}">
-		<button type="submit" class="btn btn-success solsoAjax" 
+		<button type="submit" class="btn modal-btn-save solsoAjax" 
 			data-href="{{ URL::to('admin/company') }}" data-form="company" data-method="post" data-return="tabCompany" 
 			data-message-title="{{ trans('translate.update_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" data-message-success="{{ trans('translate.data_was_updated') }}">
 			<i class="fa fa-save"></i> {{ trans('translate.save') }}

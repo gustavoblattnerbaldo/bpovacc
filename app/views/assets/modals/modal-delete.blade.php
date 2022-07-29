@@ -2,7 +2,7 @@
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
-            <h4 class="modal-title">{{ trans('translate.delete_dialog') }}</h4>
+            <h4 class="modal-title">Atenção!!!</h4>
         </div>
 
         <div class="modal-body">

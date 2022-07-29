@@ -1,13 +1,14 @@
-<table class="table solsoTable" data-alert="{{ isset($alert) ? $alert : false }}" data-all="{{ sizeof($clients) }}">
+<table class="table solsoTable table-striped" data-alert="{{ isset($alert) ? $alert : false }}" data-all="{{ sizeof($clients) }}">
 	<thead>
 		<tr>
 			<th>{{ trans('translate.crt') }}</th>
 			<th>{{ trans('translate.name') }}</th>
 			<th>{{ trans('translate.email') }}</th>
-			<th class="small">{{ trans('translate.action') }}</th>
-			<th class="small">{{ trans('translate.action') }}</th>
-			<th class="small">{{ trans('translate.action') }}</th>
-			<th class="small">{{ trans('translate.action') }}</th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
+			<th></th>
 		</tr>
 	</thead>
 	
@@ -27,47 +28,53 @@
 			<td>
 				{{ $v->email }}
 			</td>	
-
-			<td>
+			<td style="max-width: 20px">		
+				<button type="button" class="btn btn-primary btn-geral solsoShowModal" 
+				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('client/' . $v->id . '/password') }}" data-modal-title="{{ trans('translate.edit_staff') }}">
+					<i class="fa fa-key"></i>
+				</button>
+			</td>	
+			<td style="max-width: 20px">
 				@if ( $v->invitation == 1)
-					{{ trans('translate.invitation_was_sent') }}
+				<button type="button" class="btn solso-pdf btn-geral solsoAjax" disabled>
+						<i class="fa fa-check"></i>
+					</button>
 				@else
 					<input type="hidden" name="solsoStatus" value="{{ isset($alert) ? $alert : 'false'; }}">
-					<button type="button" class="btn solso-pdf solsoAjax"
+					<button type="button" class="btn solso-pdf btn-geral solsoAjax"
 						data-href="{{ URL::to('client/' . $v->id . '/send-invitation') }}" data-method="get"
 						data-message-title="{{ trans('translate.update_notification') }}" data-message-error="{{ trans('translate.an_error_occurred') }}" 
 						data-message-success="{{ trans('translate.email_was_sent_to_client') }}" data-message-warning="{{ trans('translate.an_error_occurred') }}">
 						
-						{{ trans('translate.send_invitation') }}
+						<i class="fa fa-paper-plane-o"></i>
 					</button>
 				@endif
 			</td>
 			
-			<td>
+			<td style="max-width: 20px">
 				@if ($v->status == 1)
-					<button type="button" class="btn btn-warning solsoConfirm" 
+					<button type="button" class="btn btn-warning btn-geral solsoConfirm" 
 					data-toggle="modal" data-target="#solsoBanAccount" data-href="{{ URL::to('user/' . $v->id . '/ban') }}">
-						<i class="fa fa-ban"></i> {{ trans('translate.ban_account') }}
+						<i class="fa fa-ban"></i>
 					</button>
 				@else
-					<button type="button" class="btn btn-success solsoConfirm" 
+					<button type="button" class="btn btn-success btn-geral solsoConfirm" 
 					data-toggle="modal" data-target="#solsoRemoveBan" data-href="{{ URL::to('user/' . $v->id . '/ban') }}">
-						<i class="fa fa-check"></i> {{ trans('translate.remove_ban') }}
+						<i class="fa fa-check"></i>
 					</button>					
 				@endif
 			</td>			
 			
-			<td>		
-				<button type="button" class="btn btn-primary solsoShowModal" 
+			<td style="max-width: 20px">		
+				<button type="button" class="btn btn-primary btn-geral solsoShowModal" 
 				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('client/' . $v->id . '/edit') }}" data-modal-title="{{ trans('translate.edit_client') }}">
-					<i class="fa fa-edit"></i> {{ trans('translate.edit') }}
-				</button>
+					<i class="fa fa-edit"></i>
 			</td>			
 			
-			<td>		
-				<button type="button" class="btn btn-danger solsoConfirm" 
+			<td style="max-width: 35px">		
+				<button type="button" class="btn btn-danger btn-geral solsoConfirm" 
 				data-toggle="modal" data-target="#solsoDeleteModal" data-href="{{ URL::to('client/' . $v->id) }}">
-					<i class="fa fa-trash"></i> {{ trans('translate.delete') }}
+					<i class="fa fa-trash"></i>
 				</button>
 			</td>
 		</tr>

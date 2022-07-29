@@ -45,6 +45,7 @@ Route::group(array('before' => 'auth'), function()
 		Route::resource('department',					'DepartmentController');
 		Route::resource('invitation',					'InvitationSettingController');	
 		Route::resource('staff',						'StaffController');
+		Route::get('staff/{id}/password',						'StaffController@password');
 		
 		Route::resource('ticketPriority',				'TicketPriorityController');
 		Route::resource('ticketType',					'TicketTypeController');
@@ -52,6 +53,7 @@ Route::group(array('before' => 'auth'), function()
 		
 		Route::delete('user/{id}/ban', 					'UserController@banUser');
 		Route::get('client/{id}/send-invitation',		'ClientController@sendInvitation');
+		Route::get('client/{id}/password',						'ClientController@password');
 	});	
 
 	Route::get('dashboard',								'DashboardController@index');	

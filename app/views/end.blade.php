@@ -342,7 +342,7 @@
 			
 			return false;
 		});				
-		
+
 		$('#solsoCrudModal').on('hidden.bs.modal', function () {
 			var url      	= window.location.href;			
 			var lastSegment = url.split('/').pop();

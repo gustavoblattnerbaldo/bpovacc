@@ -1,0 +1,52 @@
+<div class="col-md-12">
+	<?php if(Session::has('success')): ?>
+	<div class="col-md-3" style="
+		position: absolute; 
+		z-index: 1;
+    right: 0%;
+    margin-top: -40px;">
+		<div role="alert" class="alert alert-success">
+				<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo Session::get('success'); ?> !
+			</div>	
+	</div>	
+	<?php endif; ?>	
+	
+	<?php if(Session::has('message')): ?>
+	<div class="col-md-3" style="
+		position: absolute; 
+		z-index: 1;
+    right: 0%;
+    margin-top: -40px;">
+		<div role="alert" class="alert alert-info">
+			<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo Session::get('message'); ?> !
+		</div>
+	</div>		
+	<?php endif; ?>		
+
+	<?php if(Session::has('warning')): ?>
+	<div class="col-md-3" style="
+		position: absolute; 
+		z-index: 1;
+    right: 0%;
+    margin-top: -40px;">
+		<div role="alert" class="alert alert-warning">
+			<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo Session::get('warning'); ?> !
+		</div>	
+	</div>	
+	<?php endif; ?>	
+
+	<?php if(Session::has('error')): ?>
+	<div class="col-md-3" style="
+		position: absolute; 
+		z-index: 1;
+    right: 0%;
+    margin-top: -40px;">
+		<div role="alert" class="alert alert-danger">
+			<strong><?php echo trans('translate.message'); ?>: </strong> <?php echo Session::get('error'); ?> !
+		</div>	
+	</div>	
+	<?php endif; ?>	
+
+	<?php echo Session::forget('message'); ?>
+
+</div>

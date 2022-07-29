@@ -1,0 +1,67 @@
+/* === NAVBAR === */
+.navbar-default {
+  background-color: #262523;
+  height: 80px;
+  border: none;
+}
+.navbar-default ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: block;
+}
+.navbar-default .brand {
+  float: left;
+  width: 285px;
+  text-shadow: 1px 1px 0 #ffffff;
+}
+.navbar-default .navbar-brand span {
+  background: #4f5b66;
+  text-shadow: none;
+  color: #eeeeee;
+  padding: 6px 10px;
+  margin-left: -4px;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #fff !important;
+}
+.navbar-default a {
+  color: #000;
+}
+.navbar-default i {
+  color: #2c3e50;
+}
+.navbar-default .badge {
+  background: #d7289e;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 4px 8px;
+}
+.navbar-default .navbar-text {
+  color: #222;
+}
+
+.logo-white img {
+  height: 70px;
+  margin-top: 5px;
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.logout-btn {
+  margin-top: 12px;
+  margin-right: 12px;
+  border-radius: 10px;
+}
+/* === END NAVBAR === */
+
+.body-main {
+  padding: 25px !important;
+}
+
+.arrow {
+  margin-top: 20px;
+  margin-right: 20px;
+  padding: 12px;
+  background-color: #272727;
+  border-radius: 25px;
+  cursor: pointer;
+  text-shadow: none;
+}

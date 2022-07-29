@@ -1,5 +1,5 @@
-<table class="table solsoTable" data-alert="{{ isset($alert) ? $alert : false }}" data-all="{{ sizeof($tickets) }}">
-	<thead>
+<table class="table solsoTable table-striped" data-alert="{{ isset($alert) ? $alert : false }}" data-all="{{ sizeof($tickets) }}">
+	<thead >
 		<tr>
 			<th>{{ trans('translate.crt') }}.</th>
 			
@@ -7,26 +7,24 @@
 				<th class="col-md-2">{{ trans('translate.client') }}</th>
 			@endif
 			
-			@if ( ! $userIsClient )	
+			<!-- @if ( ! $userIsClient )	
 				<th class="col-md-2">{{ trans('translate.assign_to') }}</th>
-			@endif			
+			@endif			 -->
 			
-			<th>{{ trans('translate.title') }}</th>
-			<th class="small">{{ trans('translate.department') }}</th>
-			<th class="small">{{ trans('translate.type') }}</th>
-			<th class="small">{{ trans('translate.priority') }}</th>
-			<th class="small">{{ trans('translate.status') }}</th>
-			<th class="small text-center">{{ trans('translate.created_at') }}</th>			
-			<th class="small">{{ trans('translate.state') }}</th>
+			<th class="col-md-2">{{ trans('translate.title') }}</th>
+			<th>{{ trans('translate.department') }}</th>
+			<th>{{ trans('translate.type') }}</th>
+			<th>{{ trans('translate.priority') }}</th>
+			<th>{{ trans('translate.status') }}</th>
+			<th>Criado</th>			
+			<th>{{ trans('translate.state') }}</th>
 			
 			@if ( ! $userIsClient )
-				<th class="small">{{ trans('translate.action') }}</th>
-				<th class="small">{{ trans('translate.action') }}</th>
+				<th class="text-center"></th>
 			@endif
 			
 			@if ( $userIsClient )
-				<th class="small">{{ trans('translate.action') }}</th>
-				<th class="small">{{ trans('translate.action') }}</th>
+				<th class="text-center"></th>
 			@endif
 		</tr>
 	</thead>
@@ -36,7 +34,9 @@
 	@foreach ($tickets as $crt => $v)
 		<tr>
 			<td>
-				{{ $crt+1 }}
+				<strong>
+					{{ $crt+1 }}
+				</strong>
 			</td>
 
 			@if ( ! $userIsClient )
@@ -45,7 +45,7 @@
 				</td>
 			@endif
 			
-			@if ( ! $userIsClient )
+			<!-- @if ( ! $userIsClient )
 				<td>
 					@if ($v->staff_id == 0)
 						<label class="label-green">{{ trans('translate.free') }}</label>
@@ -59,7 +59,7 @@
 						</label>
 					@endif		
 				</td>
-			@endif
+			@endif -->
 			
 			<td>
 				{{ $v->title }}
@@ -85,23 +85,23 @@
 				@endif
 			</td>			
 
-			<td class="text-center">
+			<td>
 				{{ $v->created_at }}
 			</td>
 			
 			<td>
 				@if ($v->state == 0)
-					<label class="label-orange">{{ trans('translate.unread') }}</label>
+					<label class="label-red">{{ trans('translate.unread') }}</label>
 				@else
 					<label class="label-green">{{ trans('translate.read') }}</label>
 				@endif
-			</td>			
-			
+			</td>	
+
+		<td class="action-table text-center">
 			@if ( ! $userIsClient )
-				<td>
 					<div class="dropdown">
-						<button class="btn solso-pdf dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
-							{{ trans('translate.quick_actions') }}
+						<button class="btn btn-geral solso-pdf dropdown-toggle" type="button" id="dropdownMenu1" title="Editar" data-toggle="dropdown" aria-expanded="true">
+						<i class="fa fa-edit"></i>
 							<span class="caret"></span>
 						</button>
 					
@@ -148,24 +148,21 @@
 							@endif
 						</ul>
 					</div>
-				</td>
 			@endif
 
-			<td>
-				<button type="button" class="btn btn-info solsoShowModal" 
-				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('ticket/' . $v->id) }}" data-modal-title="{{ trans('translate.show_ticket') }}">
-					<i class="fa fa-eye"></i> {{ trans('translate.show') }}
+
+				<button type="button" class="btn btn-geral btn-info solsoShowModal" 
+				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('ticket/' . $v->id) }}" data-modal-title="{{ trans('translate.show_ticket') }}" title="Exibir">
+					<i class="fa fa-eye"></i>
 				</button>
-			</td>	
 			
-			@if ( $userIsClient )
-				<td>		
-					<button type="button" class="btn btn-danger solsoConfirm" 
+			@if ( $userIsClient )		
+					<button type="button" class="btn btn-geral solsoConfirm" 
 					data-toggle="modal" data-target="#solsoDeleteModal" data-href="{{ URL::to('ticket/' . $v->id) }}">
-						<i class="fa fa-trash"></i> {{ trans('translate.delete') }}
-					</button>
-				</td>		
+						<i class="fa fa-trash"></i>
+					</button>	
 			@endif
+		</td>
 		</tr>
 	@endforeach
 	

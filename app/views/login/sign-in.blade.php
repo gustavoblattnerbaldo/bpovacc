@@ -1,12 +1,9 @@
 @section('content')
 
 	<div class="login">
-		<header>
-			<h1 class="text-center">{{ trans('translate.app_name') }}</h1>
-		</header>
 
 		<div class="authForm">
-			<h3 class="text-center">{{ trans('translate.create_new_account') }}</h3>
+			<h3 class="text-center title-white">{{ trans('translate.create_new_account') }}</h3>
 					
 			{{ Form::open(array('url' => 'signin', 'role' => 'form', 'class' => 'validateJSForm form-signin')) }}
 			

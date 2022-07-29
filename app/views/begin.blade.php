@@ -11,8 +11,7 @@
 	<!-- END META -->
 
 	<!-- FONTS -->
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Dosis:400,500,600">
-	<!-- END FONTS -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
 	<!-- CSS -->
 	<link rel="stylesheet" type="text/css" href="{{ url('public/css/bootstrap.min.css') }}">
@@ -21,6 +20,13 @@
 	<link rel="stylesheet" type="text/css" href="{{ url('public/vendor/perfect-scrollbar/perfect-scrollbar.min.css') }}">
 	
 	<link rel="stylesheet" type="text/css" href="{{ url('public/css/design.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('public/css/login.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('public/css/navbar.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('public/css/validation.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('public/css/widget.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('public/css/table.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('public/css/sidebar.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url('public/css/departaments.css') }}">
 	<!-- END CSS -->	
 </head>
 <body>
