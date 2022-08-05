@@ -13,9 +13,9 @@
 			
 			<th class="col-md-2">{{ trans('translate.title') }}</th>
 			<th>{{ trans('translate.department') }}</th>
-			<th>{{ trans('translate.type') }}</th>
+			<!--<th>{{ trans('translate.type') }}</th>-->
 			<th>{{ trans('translate.priority') }}</th>
-			<th>{{ trans('translate.status') }}</th>
+			<!--th>{{ trans('translate.status') }}</th-->
 			<th>Criado</th>			
 			<th>{{ trans('translate.state') }}</th>
 			
@@ -69,21 +69,21 @@
 				{{ trans('translate.' . Language::translateSlug($v->department, '_')) }}
 			</td>		
 			
-			<td>
+			<!--td>
 				{{ trans('translate.' . Language::translateSlug($v->type, '_')) }}
-			</td>	
+			</td-->	
 
 			<td>
 				{{ trans('translate.' . Language::translateSlug($v->priority, '_')) }}
 			</td>
 			
-			<td>
+			<!--td>
 				@if ($v->status_id == 0)
 					{{ trans('translate.processing') }}
 				@else
 					{{ trans('translate.' . Language::translateSlug($v->status, '_')) }}
 				@endif
-			</td>			
+			</td-->			
 
 			<td>
 				{{ $v->created_at }}
@@ -91,7 +91,7 @@
 			
 			<td>
 				@if ($v->state == 0)
-					<label class="label-red">{{ trans('translate.unread') }}</label>
+					<label class="label-red" >{{ trans('translate.unread') }}</label>
 				@else
 					<label class="label-green">{{ trans('translate.read') }}</label>
 				@endif
@@ -157,7 +157,7 @@
 				</button>
 			
 			@if ( $userIsClient )		
-					<button type="button" class="btn btn-geral solsoConfirm" 
+					<button type="button" class="btn btn-geral solsoConfirm"
 					data-toggle="modal" data-target="#solsoDeleteModal" data-href="{{ URL::to('ticket/' . $v->id) }}">
 						<i class="fa fa-trash"></i>
 					</button>	

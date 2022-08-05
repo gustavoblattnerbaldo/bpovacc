@@ -28,13 +28,13 @@
 			<td>
 				{{ $v->email }}
 			</td>	
-			<td style="max-width: 20px">		
+			<td style="max-width: 30px">		
 				<button type="button" class="btn btn-primary btn-geral solsoShowModal" 
 				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('client/' . $v->id . '/password') }}" data-modal-title="{{ trans('translate.edit_staff') }}">
 					<i class="fa fa-key"></i>
 				</button>
 			</td>	
-			<td style="max-width: 20px">
+			<td style="max-width: 30px">
 				@if ( $v->invitation == 1)
 				<button type="button" class="btn solso-pdf btn-geral solsoAjax" disabled>
 						<i class="fa fa-check"></i>
@@ -51,7 +51,7 @@
 				@endif
 			</td>
 			
-			<td style="max-width: 20px">
+			<td style="max-width: 30px">
 				@if ($v->status == 1)
 					<button type="button" class="btn btn-warning btn-geral solsoConfirm" 
 					data-toggle="modal" data-target="#solsoBanAccount" data-href="{{ URL::to('user/' . $v->id . '/ban') }}">
@@ -65,13 +65,13 @@
 				@endif
 			</td>			
 			
-			<td style="max-width: 20px">		
+			<td style="max-width: 30px">		
 				<button type="button" class="btn btn-primary btn-geral solsoShowModal" 
 				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('client/' . $v->id . '/edit') }}" data-modal-title="{{ trans('translate.edit_client') }}">
 					<i class="fa fa-edit"></i>
 			</td>			
 			
-			<td style="max-width: 35px">		
+			<td style="max-width: 45px">		
 				<button type="button" class="btn btn-danger btn-geral solsoConfirm" 
 				data-toggle="modal" data-target="#solsoDeleteModal" data-href="{{ URL::to('client/' . $v->id) }}">
 					<i class="fa fa-trash"></i>

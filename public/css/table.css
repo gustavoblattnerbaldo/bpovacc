@@ -50,6 +50,11 @@
   padding-bottom: 70px;
 }
 
+.table-responsive {
+  min-height: 0.01%;
+  overflow-x: hidden !important;
+}
+
 .removePaddingTable {
   margin-top: -250px;
 }

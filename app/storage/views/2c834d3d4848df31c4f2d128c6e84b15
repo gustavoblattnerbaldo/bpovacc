@@ -13,9 +13,9 @@
 			
 			<th class="col-md-2"><?php echo trans('translate.title'); ?></th>
 			<th><?php echo trans('translate.department'); ?></th>
-			<th><?php echo trans('translate.type'); ?></th>
+			<!--<th><?php echo trans('translate.type'); ?></th>-->
 			<th><?php echo trans('translate.priority'); ?></th>
-			<th><?php echo trans('translate.status'); ?></th>
+			<!--th><?php echo trans('translate.status'); ?></th-->
 			<th>Criado</th>			
 			<th><?php echo trans('translate.state'); ?></th>
 			
@@ -74,17 +74,17 @@
 
 			</td>		
 			
-			<td>
+			<!--td>
 				<?php echo trans('translate.' . Language::translateSlug($v->type, '_')); ?>
 
-			</td>	
+			</td-->	
 
 			<td>
 				<?php echo trans('translate.' . Language::translateSlug($v->priority, '_')); ?>
 
 			</td>
 			
-			<td>
+			<!--td>
 				<?php if($v->status_id == 0): ?>
 					<?php echo trans('translate.processing'); ?>
 
@@ -92,7 +92,7 @@
 					<?php echo trans('translate.' . Language::translateSlug($v->status, '_')); ?>
 
 				<?php endif; ?>
-			</td>			
+			</td-->			
 
 			<td>
 				<?php echo $v->created_at; ?>
@@ -101,7 +101,7 @@
 			
 			<td>
 				<?php if($v->state == 0): ?>
-					<label class="label-red"><?php echo trans('translate.unread'); ?></label>
+					<label class="label-red" ><?php echo trans('translate.unread'); ?></label>
 				<?php else: ?>
 					<label class="label-green"><?php echo trans('translate.read'); ?></label>
 				<?php endif; ?>
@@ -172,7 +172,7 @@
 				</button>
 			
 			<?php if( $userIsClient ): ?>		
-					<button type="button" class="btn btn-geral solsoConfirm" 
+					<button type="button" class="btn btn-geral solsoConfirm"
 					data-toggle="modal" data-target="#solsoDeleteModal" data-href="<?php echo URL::to('ticket/' . $v->id); ?>">
 						<i class="fa fa-trash"></i>
 					</button>	

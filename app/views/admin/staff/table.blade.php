@@ -31,20 +31,20 @@
 			<td>
 				{{ trans('translate.' . Language::translateSlug($v->department, '_')) }}
 			</td>							
-			<td style="max-width: 20px">		
+			<td style="max-width: 30px">		
 				<button type="button" class="btn btn-primary btn-geral solsoShowModal" 
 				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('staff/' . $v->userID . '/password') }}" data-modal-title="{{ trans('translate.edit_staff') }}">
 					<i class="fa fa-key"></i>
 				</button>
 			</td>		
-			<td style="max-width: 20px">		
+			<td style="max-width: 30px">		
 				<button type="button" class="btn btn-primary btn-geral solsoShowModal" 
 				data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('staff/' . $v->userID . '/edit') }}" data-modal-title="{{ trans('translate.edit_staff') }}">
 					<i class="fa fa-edit"></i>
 				</button>
 			</td>			
 			
-			<td style="max-width: 30px">		
+			<td style="max-width: 40px">		
 				<button type="button" class="btn btn-danger btn-geral solsoConfirm" 
 				data-toggle="modal" data-target="#solsoDeleteModal" data-href="{{ URL::to('staff/' . $v->userID) }}">
 					<i class="fa fa-trash"></i>

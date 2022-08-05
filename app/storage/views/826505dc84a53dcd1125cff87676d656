@@ -1,5 +1,5 @@
 <?php $__env->startSection('content'); ?>
-	<div class="col-sm-6 col-md-3 top20">
+	<div class="col-sm-6 col-md-3 top6p">
 		<div class="widget widget-stats bg-yellow">
 			<div class="stats-icon stats-icon-lg"><i class="fa fa-list fa-fw"></i></div>
 			<div class="stats-title"><?php echo trans('translate.departments'); ?></div>
@@ -7,7 +7,7 @@
 		</div> 	
 	</div> 	
 
-	<div class="col-sm-6 col-md-3 top20">
+	<div class="col-sm-6 col-md-3 top6p">
 		<div class="widget widget-stats bg-yellow">
 			<div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
 			<div class="stats-title"><?php echo trans('translate.staff'); ?></div>
@@ -15,7 +15,7 @@
 		</div> 	
 	</div>  
 
-	<div class="col-sm-6 col-md-3 top20">
+	<div class="col-sm-6 col-md-3 top6p">
 		<div class="widget widget-stats bg-yellow">
 			<div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
 			<div class="stats-title"><?php echo trans('translate.clients'); ?></div>
@@ -23,7 +23,7 @@
 		</div> 
 	</div> 		
 
-	<div class="col-sm-6 col-md-3 top20">
+	<div class="col-sm-6 col-md-3 top6p">
 		<div class="widget widget-stats bg-yellow">
 			<div class="stats-icon stats-icon-lg"><i class="fa fa-comment fa-fw"></i></div>
 			<div class="stats-title"><?php echo trans('translate.tickets'); ?></div>

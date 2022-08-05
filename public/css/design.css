@@ -18,8 +18,8 @@ body {
   font-family: 'Dosis', arial;
   font-size: 14px;
   line-height: 1;
-  padding-bottom: 40px;
-  padding-top: 60px;
+  padding-bottom: 0px;
+  padding-top: 0px;
   text-rendering: optimizelegibility;
 }
 
@@ -164,6 +164,7 @@ main {
   padding: 15px;
 }
 .modal-body {
+  max-height: 400px !important;
   padding-bottom: 10px !important;
   background: #fff;
   max-height: 600px;

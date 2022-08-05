@@ -88,11 +88,11 @@
   -webkit-transition: margin-left 0.5s;
 }
 .body.slide {
-  margin-left: 280px;
+  margin-left: 15%;
 }
 .sidebar {
   background-color: #333333;
-  width: 280px;
+  width: 15%;
   height: 100%;
   position: fixed;
   left: -300px;

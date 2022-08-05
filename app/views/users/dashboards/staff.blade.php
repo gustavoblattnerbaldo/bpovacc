@@ -2,7 +2,7 @@
 	
 	@include('assets.messages.alerts')
 
-	<div class="col-sm-6 col-md-3 top20">
+	<div class="col-sm-6 col-md-3 top6p">
 		<div class="widget widget-stats bg-blue">
 			<div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
 			<div class="stats-title">{{ trans('translate.tickets') }}</div>
@@ -10,7 +10,7 @@
 		</div> 	
 	</div>  
 
-	<div class="col-sm-6 col-md-3 top20">
+	<div class="col-sm-6 col-md-3 top6p">
 		<div class="widget widget-stats bg-purple">
 			<div class="stats-icon stats-icon-lg"><i class="fa fa-comment fa-fw"></i></div>
 			<div class="stats-title">{{ trans('translate.replies') }}</div>
