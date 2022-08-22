@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="<?php echo url('public/css/bootstrap.min.css'); ?>">
+</head>
+
+<body>
+	<h2><?php echo trans('translate.password_was_reset'); ?></h2>
+	<h3><?php echo trans('translate.login_with_credentials'); ?></h3>
+
+	<table class="table">
+		<tr>
+			<td><?php echo trans('translate.user'); ?>:</td>
+			<td><?php echo $user; ?></td>
+		</tr>
+		
+		<tr>
+			<td><?php echo trans('translate.password'); ?>:</td>
+			<td><?php echo $password; ?></td>
+		</tr>			
+	</table>
+</body>
+</html>

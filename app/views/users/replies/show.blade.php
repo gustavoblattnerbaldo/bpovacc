@@ -1,9 +1,9 @@
 
 
-<div class="modal-dialog modal-md">
+<div class="modal-dialog modal-lg">
 	<div class="modal-content">
 		<div class="modal-header">
-			<h4 class="modal-title"> Exibir Respostas</h4>
+			<h4 class="modal-title"> Acompanhamento de Chamado</h4>
 			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
       </button>
@@ -11,15 +11,88 @@
 
 		<div class="modal-body">
 			<div class="row">
+			<div class="col-md-12">
+			<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="heading1">
+				<h4 class="panel-title">
+					{{ trans('translate.details') }}
+					<a data-toggle="collapse" data-parent="#accordion1" href="#collapse1" aria-expanded="true" aria-controls="collapse1" class="pull-right">
+						<i class="solsoCollapseIcon fa fa-chevron-up"></i>	
+					</a>
+				</h4>
+			</div>
+					
+			<div id="collapse1" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading1">
+				<div class="panel-body">
+					<table class="table table-striped newTickets" data-alert="{{ isset($alert) ? $alert : false }}" data-all="{{ isset($newTickets) ? $newTickets : false }}">
+						<tbody>
+							@if ( $user->role_id == 1)
+								<tr>
+									<td>{{ trans('translate.assign_to') }}</td>
+									<td>
+										@if ($ticket->staff_id == 0)
+											<label class="label-green">{{ trans('translate.free') }}</label>
+										@elseif ($ticket->staff_id == 1)
+											<label class="label-grey">{{ $ticket->staff }}</label>
+										@else	
+											<label class="label-owner">{{ $ticket->staff }}</label>
+										@endif	
+									</td>
+								</tr>
+							@endif
+
+							<tr>
+								<td>{{ trans('translate.client') }}</td>
+								<td>
+									<label class="label-client">{{ $ticket->client }}</label>
+								</td>
+							</tr>				
+							
+							<tr>
+								<td>{{ trans('translate.department') }}</td>
+								<td>{{ trans('translate.' . Language::translateSlug($ticket->department, '_')) }}</td>
+							</tr>
+
+							<tr>
+								<td>{{ trans('translate.type') }}</td>
+								<td>{{ trans('translate.' . Language::translateSlug($ticket->type, '_')) }}</td>
+							</tr>	
+
+							<tr>
+								<td>{{ trans('translate.priority') }}</td>
+								<td>{{ trans('translate.' . Language::translateSlug($ticket->priority, '_')) }}</td>
+							</tr>
+
+							<tr>
+								<td>{{ trans('translate.status') }}</td>
+								<td>
+									@if ($ticket->status_id == 0)
+										{{ trans('translate.processing') }}
+									@else
+										{{ trans('translate.' . Language::translateSlug($ticket->status, '_')) }}
+									@endif								
+								</td>
+							
+							
+							<tr>
+								<td>{{ trans('translate.content') }}</td>
+								<td>{{ $ticket->content }}</td>
+							</tr>
+							</tr>
+						<tbody>
+					</table>
+				</div>
+			</div>					
+		</div>					
+	</div>					
 				
-				
-				<div class="col-md-12">
 					@if ($reply->user_id == $user->id)
 						<div class="panel-group" id="accordion1" role="tablist" aria-multiselectable="true">
 							<div class="panel panel-default">
 								<div class="panel-heading" role="tab" id="heading1">
 									<h4 class="panel-title">
-										{{ trans('translate.details') }}
+										Último contato
 										<a data-toggle="collapse" data-parent="#accordion1" href="#collapse1" aria-expanded="true" aria-controls="collapse1" class="pull-right">
 											<i class="solsoCollapseIcon fa fa-chevron-up"></i>	
 										</a>
@@ -77,7 +150,7 @@
 							<div class="form-group">
 								<input type="hidden" name="userID" value="{{ $reply->from_id }}">
 								<input type="hidden" name="replyID" value="{{ $reply->id }}">
-								<button type="button" class="btn btn-success solsoSave" 
+								<button type="button" class="btn modal-btn-save solsoSave" 
 								data-message-title="{{ trans('translate.update_notification') }}" data-message-error="{{ trans('translate.validation_error_messages') }}" data-message-success="{{ trans('translate.message_was_sent') }}">
 									<i class="fa fa-share"></i> {{ trans('translate.send') }}
 								</button>

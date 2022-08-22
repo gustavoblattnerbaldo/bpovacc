@@ -53,9 +53,9 @@
 
 			<td>
 				@if ($v->state == 0)
-					<label class="label-red">{{ trans('translate.unread') }}</label>
+					<label class="label-unread">{{ trans('translate.unread') }}</label>
 				@else
-					<label class="label-green">{{ trans('translate.read') }}</label>
+					<label class="label-read">{{ trans('translate.read') }}</label>
 				@endif
 			</td>			
 			

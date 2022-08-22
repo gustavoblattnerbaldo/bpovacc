@@ -1,6 +1,6 @@
-@section('content')
+<?php $__env->startSection('content'); ?>
 	<div class="col-md-12">
-		<h3>{{ trans('translate.settings') }}</h3>
+		<h3><?php echo trans('translate.settings'); ?></h3>
 	</div>		
 	
 	<div class="col-md-12 top20">
@@ -14,25 +14,25 @@
 		
 		<div class="row tab-content">
 			<div class="tab-pane active" id="tabCompany">
-				@include('admin.settings.company')
+				<?php echo $__env->make('admin.settings.company', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			</div>		
 
 			<div class="tab-pane" id="tabTickets">
-				@include('admin.settings.tickets')
+				<?php echo $__env->make('admin.settings.tickets', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			</div>			
 
 			<div class="tab-pane" id="tabAccount">
-				@include('admin.settings.account')
+				<?php echo $__env->make('admin.settings.account', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			</div>	
 
 			<div class="tab-pane" id="tabPassword">
-				@include('admin.settings.password')
+				<?php echo $__env->make('admin.settings.password', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			</div>			
 			
 			<div class="tab-pane" id="tabEmail">
-				@include('admin.settings.email')
+				<?php echo $__env->make('admin.settings.email', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 			</div>	
 		</div>		
 	</div>
 		
-@stop
+<?php $__env->stopSection(); ?>

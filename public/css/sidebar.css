@@ -1,44 +1,50 @@
 /* === SIDEBAR NAV === */
-.list-group-item {
-  background-color: #333333;
+.list-group-item-sidebar-menu {
   border: none;
+  border-radius: 4px;
   margin-top: 10px;
-  padding: 10px 5px 5px 5px;
+  padding: 2.5px 5px 2.5px 5px;
+  width: 100%;
 }
 #solso-sidebar {
   margin-bottom: 70px;
 }
-#solso-sidebar .list-group-item {
+
+#solso-sidebar .list-group-item-sidebar-menu {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-#solso-sidebar .list-group-item:hover {
+#solso-sidebar .list-group-item-sidebar-menu:hover {
   transition-delay: 0s;
   transition-duration: 0.3s;
   transition-property: all;
   transition-timing-function: linear;
-  background-color: #f7b545 !important;
+  background-color: #f7b545;
   border: none;
   box-shadow: none;
 }
 
-#solso-sidebar .list-group-item:hover .list-group-item-heading {
+#solso-sidebar
+  .list-group-item-sidebar-menu:hover
+  .list-group-item-sidebar-menu-heading {
   color: #333333;
 }
 
-#solso-sidebar .list-group-item.active .list-group-item-heading {
+#solso-sidebar
+  .list-group-item-sidebar-menu.active
+  .list-group-item-sidebar-menu-heading {
   color: #333333;
 }
 
-#solso-sidebar .list-group-item.active,
-.input-group-addon #solso-sidebar .list-group-item.active:hover,
-#solso-sidebar .list-group-item.active:focus {
+#solso-sidebar .list-group-item-sidebar-menu.active,
+.input-group-addon #solso-sidebar .list-group-item-sidebar-menu.active:hover,
+#solso-sidebar .list-group-item-sidebar-menu.active:focus {
   background-color: #f7b545 !important;
   border: none;
   box-shadow: none;
 }
-#solso-sidebar .list-group-item-heading {
+#solso-sidebar .list-group-item-sidebar-menu-heading {
   width: 140px;
   font-size: 16px;
   color: #fff;
@@ -46,14 +52,14 @@
   letter-spacing: 0.5px;
 }
 
-#solso-sidebar .list-group-item-text {
+#solso-sidebar .list-group-item-sidebar-menu-text {
   text-transform: lowercase;
 }
-#solso-sidebar .list-group-item-text a {
+#solso-sidebar .list-group-item-sidebar-menu-text a {
   display: inline;
 }
-#solso-sidebar .list-group-item-heading,
-#solso-sidebar .list-group-item-text {
+#solso-sidebar .list-group-item-sidebar-menu-heading,
+#solso-sidebar .list-group-item-sidebar-menu-text {
   padding-left: 5px;
 }
 #solso-sidebar .input-group .input-group-addon:last-child {
@@ -70,9 +76,15 @@
 #solso-sidebar .active .input-group-addon {
   color: #343d46;
 }
-#solso-sidebar .list-group-item.active .list-group-item-text,
-#solso-sidebar .list-group-item.active:focus .list-group-item-text,
-#solso-sidebar .list-group-item.active:hover .list-group-item-text {
+#solso-sidebar
+  .list-group-item-sidebar-menu.active
+  .list-group-item-sidebar-menu-text,
+#solso-sidebar
+  .list-group-item-sidebar-menu.active:focus
+  .list-group-item-sidebar-menu-text,
+#solso-sidebar
+  .list-group-item-sidebar-menu.active:hover
+  .list-group-item-sidebar-menu-text {
   color: #343d46 !important;
 }
 /* === END SIDEBAR NAV === */

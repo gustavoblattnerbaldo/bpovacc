@@ -1,11 +1,11 @@
-@section('content')
+<?php $__env->startSection('content'); ?>
 
-	@if ( $userIsClient )
+	<?php if( $userIsClient ): ?>
 		<div class="col-sm-6 col-md-3 top20">
 			<div class="widget widget-stats bg-yellow">
 				<div class="stats-icon stats-icon-lg"><i class="fa fa-comment fa-fw"></i></div>
 				<div class="stats-title">Chamados</div>
-				<div class="stats-number">{{ sizeof($tickets) }}</div>
+				<div class="stats-number"><?php echo sizeof($tickets); ?></div>
 			</div> 	
 		</div>  
 
@@ -13,30 +13,30 @@
 			<div class="widget widget-stats bg-yellow">
 				<div class="stats-icon stats-icon-lg"><i class="fa fa-comments fa-fw"></i></div>
 				<div class="stats-title">Acompanhamento</div>
-				<div class="stats-number">{{ sizeof($replies) }}</div>
+				<div class="stats-number"><?php echo sizeof($replies); ?></div>
 			</div> 
 		</div>		
-	@endif
+	<?php endif; ?>
 
-	@if ( ! $userIsClient )
+	<?php if( ! $userIsClient ): ?>
 	<div class="col-md-12 bottom20">
 		<h3>Chamados</h3>
 	</div>
-	@endif
+	<?php endif; ?>
 
 	<div class="col-md-12 ">
-		@if ( $userIsClient )
+		<?php if( $userIsClient ): ?>
 			<button type="button" class="btn btn-position-right-dash solsoShowModal"
-			data-toggle="modal" data-target="#solsoCrudModal" data-href="{{ URL::to('ticket/create') }}" data-modal-title="{{ trans('translate.create_new_ticket') }}">
+			data-toggle="modal" data-target="#solsoCrudModal" data-href="<?php echo URL::to('ticket/create'); ?>" data-modal-title="<?php echo trans('translate.create_new_ticket'); ?>">
 				<i class="fa fa-plus"></i> Novo Chamado
 			</button>
-		@endif
+		<?php endif; ?>
 	</div>	
 
 	<div class="col-md-12">
 		<div id="ajaxTable" class="table-responsive">
-			@include('users.tickets.table')	
+			<?php echo $__env->make('users.tickets.table', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
 		</div>	
 	</div>
 	
-@stop
+<?php $__env->stopSection(); ?>

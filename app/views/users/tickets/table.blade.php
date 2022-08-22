@@ -15,10 +15,10 @@
 			<th>{{ trans('translate.department') }}</th>
 			<!--<th>{{ trans('translate.type') }}</th>-->
 			<th>{{ trans('translate.priority') }}</th>
-			<!--th>{{ trans('translate.status') }}</th-->
-			<th>Criado</th>			
+			<th>{{ trans('translate.status') }}</th>
+			<th>Criado em</th>			
 			<th>{{ trans('translate.state') }}</th>
-			
+			<th>Vencimento</th>			
 			@if ( ! $userIsClient )
 				<th class="text-center"></th>
 			@endif
@@ -26,6 +26,8 @@
 			@if ( $userIsClient )
 				<th class="text-center"></th>
 			@endif
+
+
 		</tr>
 	</thead>
 	
@@ -77,13 +79,13 @@
 				{{ trans('translate.' . Language::translateSlug($v->priority, '_')) }}
 			</td>
 			
-			<!--td>
+			<td>
 				@if ($v->status_id == 0)
 					{{ trans('translate.processing') }}
 				@else
 					{{ trans('translate.' . Language::translateSlug($v->status, '_')) }}
 				@endif
-			</td-->			
+			</td>			
 
 			<td>
 				{{ $v->created_at }}
@@ -91,11 +93,15 @@
 			
 			<td>
 				@if ($v->state == 0)
-					<label class="label-red" >{{ trans('translate.unread') }}</label>
+					<label class="label-unread" >{{ trans('translate.unread') }}</label>
 				@else
-					<label class="label-green">{{ trans('translate.read') }}</label>
+					<label class="label-read">{{ trans('translate.read') }}</label>
 				@endif
 			</td>	
+
+			<td>
+				{{ $v->created_at }}
+			</td>
 
 		<td class="action-table text-center">
 			@if ( ! $userIsClient )

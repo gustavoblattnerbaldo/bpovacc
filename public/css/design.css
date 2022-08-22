@@ -33,6 +33,7 @@ a:visited,
 a:active,
 a:hover {
   text-decoration: none;
+  color: white;
 }
 a img {
   border: medium none;
@@ -213,6 +214,21 @@ main {
 /* === LABELS === */
 .label {
   display: block;
+}
+
+.label-read {
+  background-color: #f7b545;
+  color: #000000;
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.label-unread {
+  background-color: #333333;
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .label-green {

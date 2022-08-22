@@ -43,75 +43,75 @@
 	<!-- CHART.JS -->
 	<script type="text/javascript" src="<?php echo URL::to('public/vendor/chart.js/chart.min.js');?>"></script>
 	<script>
-	@if (isset($label1))
+	<?php if(isset($label1)): ?>
 		var barChartClients = {
-			labels: [ {{ $label1 }} ],
+			labels: [ <?php echo $label1; ?> ],
 			datasets: [
 				{
 					fillColor: "rgba(220,220,220,0.5)",
 					strokeColor: "rgba(220,220,220,0.8)",
 					highlightFill: "rgba(220,220,220,0.75)",
 					highlightStroke: "rgba(220,220,220,1)",
-					data: [ {{ $reportClients }} ]
+					data: [ <?php echo $reportClients; ?> ]
 				}
 			]
 		}
 		
 		var barChartTickets = {
-			labels: [ {{ $label1 }} ],
+			labels: [ <?php echo $label1; ?> ],
 			datasets: [
 				{
 					fillColor: "rgba(220,220,220,0.5)",
 					strokeColor: "rgba(220,220,220,0.8)",
 					highlightFill: "rgba(220,220,220,0.75)",
 					highlightStroke: "rgba(220,220,220,1)",
-					data: [ {{ $reportTickets }} ]				
+					data: [ <?php echo $reportTickets; ?> ]				
 				}
 			]
 		}	
-	@endif
+	<?php endif; ?>
 
-	@if (isset($label2))	
+	<?php if(isset($label2)): ?>	
 		var barChartClientsProjects2 = {
-			labels: [ {{ $label2 }} ],
+			labels: [ <?php echo $label2; ?> ],
 			datasets: [
 				{
 					fillColor: "rgba(220,220,220,0.5)",
 					strokeColor: "rgba(220,220,220,0.8)",
 					highlightFill: "rgba(220,220,220,0.75)",
 					highlightStroke: "rgba(220,220,220,1)",
-					data: [ {{ $reportClients2 }} ]
+					data: [ <?php echo $reportClients2; ?> ]
 				},
 				{
 					fillColor: "rgba(151,187,205,0.5)",
 					strokeColor: "rgba(151,187,205,0.8)",
 					highlightFill: "rgba(151,187,205,0.75)",
 					highlightStroke : "rgba(151,187,205,1)",
-					data: [ {{ $reportProjects2 }} ]				
+					data: [ <?php echo $reportProjects2; ?> ]				
 				}
 			]
 		}
 		
 		var barChartEstimatesInvoices2 = {
-			labels: [ {{ $label2 }} ],
+			labels: [ <?php echo $label2; ?> ],
 			datasets: [
 				{
 					fillColor: "rgba(220,220,220,0.5)",
 					strokeColor: "rgba(220,220,220,0.8)",
 					highlightFill: "rgba(220,220,220,0.75)",
 					highlightStroke: "rgba(220,220,220,1)",
-					data: [ {{ $reportEstimates2 }} ]				
+					data: [ <?php echo $reportEstimates2; ?> ]				
 				},
 				{
 					fillColor:  "rgba(151,187,205,0.5)",
 					strokeColor: "rgba(151,187,205,0.8)",
 					highlightFill : "rgba(151,187,205,0.75)",
 					highlightStroke : "rgba(151,187,205,1)",
-					data : [ {{ $reportInvoices2 }} ]
+					data : [ <?php echo $reportInvoices2; ?> ]
 				}
 			]
 		}		
-	@endif	
+	<?php endif; ?>	
 	
 	window.onload = function(){
 		if ($('#reportClients').length) {
@@ -346,7 +346,7 @@
 		$('#solsoCrudModal').on('hidden.bs.modal', function () {
 			var url      	= window.location.href;			
 			var lastSegment = url.split('/').pop();
-			var goTO		= '{{ Request::segment(1) }}';
+			var goTO		= '<?php echo Request::segment(1); ?>';
 			
 			if ( lastSegment == 'admin' || lastSegment == 'dashboard' ){
 				goTO = 'ticket';

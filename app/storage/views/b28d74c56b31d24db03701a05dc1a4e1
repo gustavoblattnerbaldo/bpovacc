@@ -1,0 +1,39 @@
+<?php $__env->startSection('content'); ?>
+	<div class="col-sm-6 col-md-3 top6p">
+		<div class="widget widget-stats bg-yellow">
+			<div class="stats-icon stats-icon-lg"><i class="fa fa-list fa-fw"></i></div>
+			<div class="stats-title"><?php echo trans('translate.departments'); ?></div>
+			<div class="stats-number"><?php echo $totalDepartments; ?></div>
+		</div> 	
+	</div> 	
+
+	<div class="col-sm-6 col-md-3 top6p">
+		<div class="widget widget-stats bg-yellow">
+			<div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
+			<div class="stats-title"><?php echo trans('translate.staff'); ?></div>
+			<div class="stats-number"><?php echo $totalStaff; ?></div>
+		</div> 	
+	</div>  
+
+	<div class="col-sm-6 col-md-3 top6p">
+		<div class="widget widget-stats bg-yellow">
+			<div class="stats-icon stats-icon-lg"><i class="fa fa-users fa-fw"></i></div>
+			<div class="stats-title"><?php echo trans('translate.clients'); ?></div>
+			<div class="stats-number"><?php echo $totalClients; ?></div>
+		</div> 
+	</div> 		
+
+	<div class="col-sm-6 col-md-3 top6p">
+		<div class="widget widget-stats bg-yellow">
+			<div class="stats-icon stats-icon-lg"><i class="fa fa-comment fa-fw"></i></div>
+			<div class="stats-title"><?php echo trans('translate.tickets'); ?></div>
+			<div class="stats-number"><?php echo $totalTickets; ?></div>
+		</div> 
+	</div>	
+	
+	<div class="col-md-12">
+		<div id="ajaxTable" class="table-responsive">
+		<?php echo $__env->make('users.tickets.table', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
+		</div>	
+	</div>	
+<?php $__env->stopSection(); ?>	
