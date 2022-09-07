@@ -199,6 +199,40 @@ class TicketController extends \BaseController {
 		
 		return $this->loadDataTable();
 	}
+   public function vencimento($id)
+	{
+		$rules = array(
+			'vencimento' => 'required'
+		);	
+		
+		$validator = Validator::make(array_map('trim', Input::all()), $rules);	
+		
+		if ($validator->passes())
+		{			
+			$update 				= Ticket::find($id);
+			$update->staff_id		= 1;
+			$update->vencimento 	= Input::get('vencimento');
+			$update->save();
+		}	
+		else
+		{
+			$data = array(
+				'ticket'		=> Ticket::find($id),
+				'vencimento' 	=> vencimento::all(),
+				'errors'		=> $validator->errors()
+			);
+			
+			return View::make('users.tickets.addons.vencimento', $data);					
+		}
+		
+		return $this->loadDataTable();
+	}
+	
+
+
+
+
+
 	
 	public function showStatus($id)
 	{
