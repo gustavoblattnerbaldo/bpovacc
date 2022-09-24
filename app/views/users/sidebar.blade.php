@@ -18,6 +18,12 @@
 			<h4 class="list-group-item-sidebar-menu-heading">Acompanhamento</h4>
 		</div>	  
 	</a>
+
+	<a href="https://shorturl.at/acNSX" target="_blank" rel="noopener noreferrer">
+		<div class="input-group list-group-item-sidebar-menu <?php if ( Request::segment(1) == 'planning' ) { ?> active <?php } ?>">
+			<h4 class="list-group-item-sidebar-menu-heading">Planejamento</h4>
+		</div>	  
+	</a>
 	
 	<a href="{{ URL::to('settings') }}">
 		<div class="input-group list-group-item-sidebar-menu <?php if ( Request::segment(1) == 'settings' ) { ?> active <?php } ?>">

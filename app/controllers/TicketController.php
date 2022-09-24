@@ -170,6 +170,8 @@ class TicketController extends \BaseController {
 		
 		return View::make('users.tickets.addons.department', $data);		
 	}
+
+
 	
 	public function updateDepartment($id)
 	{
@@ -199,39 +201,45 @@ class TicketController extends \BaseController {
 		
 		return $this->loadDataTable();
 	}
-   public function vencimento($id)
+
+
+ 	public function showVencimento($id)
 	{
-		$rules = array(
-			'vencimento' => 'required'
-		);	
+		$data = array(
+			'ticket'		=> Ticket::find($id),
+			'vencimento' 	=> TicketVencimento::all()
+		);
 		
-		$validator = Validator::make(array_map('trim', Input::all()), $rules);	
-		
-		if ($validator->passes())
-		{			
-			$update 				= Ticket::find($id);
-			$update->staff_id		= 1;
-			$update->vencimento 	= Input::get('vencimento');
-			$update->save();
-		}	
-		else
-		{
-			$data = array(
-				'ticket'		=> Ticket::find($id),
-				'vencimento' 	=> vencimento::all(),
-				'errors'		=> $validator->errors()
-			);
-			
-			return View::make('users.tickets.addons.vencimento', $data);					
-		}
-		
-		return $this->loadDataTable();
+		return View::make('users.tickets.addons.vencimento', $data);		
 	}
-	
 
+	public function updateVencimento($id)
+    {
+        $rules = array(
+            'vencimento' => 'required'
+        );
 
+        $validator = Validator::make(array_map('trim', Input::all()), $rules);
 
+        if ($validator->passes())
+        {
+            $update                 = Ticket::find($id);
+            $update->vencimento    = Input::get('vencimento');
+            $update->save();
+        }
+        else
+        {
+            $data = array(
+                'ticket'        => Ticket::find($id),
+                'vencimento'     => TicketVencimento::all(),
+                'errors'        => $validator->errors()
+            );
 
+            return View::make('users.tickets.addons.vencimento', $data);
+        }
+
+        return $this->loadDataTable();
+    }
 
 	
 	public function showStatus($id)
@@ -344,7 +352,6 @@ class TicketController extends \BaseController {
 	}
 	/* === END ADDONS === */
 
-	
 	/* === OHTERS === */
 	public function markAsRead($id)
 	{

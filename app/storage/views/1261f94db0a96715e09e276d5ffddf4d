@@ -1,0 +1,7 @@
+<?php $__env->startSection('content'); ?>
+
+<div class="col-md-12 top20">
+	<iframe src="https://verdusauditores.sharepoint.com/sites/TESTEPORTAL" width="100%" height="800px"></iframe>
+</div>
+		
+<?php $__env->stopSection(); ?>

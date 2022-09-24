@@ -50,6 +50,7 @@ Route::group(array('before' => 'auth'), function()
 		Route::resource('ticketPriority',				'TicketPriorityController');
 		Route::resource('ticketType',					'TicketTypeController');
 		Route::resource('ticketStatus',					'TicketStatusController');	
+		Route::resource('ticketVencimento',					'TicketVencimentoController');	
 		
 		Route::delete('user/{id}/ban', 					'UserController@banUser');
 		Route::get('client/{id}/send-invitation',		'ClientController@sendInvitation');
@@ -61,6 +62,8 @@ Route::group(array('before' => 'auth'), function()
 
 	Route::get('ticket/{id}/status',					'TicketController@showStatus');
 	Route::post('ticket/{id}/status',					'TicketController@updateStatus');		
+	Route::get('ticket/{id}/vencimento',					'TicketController@showVencimento');
+	Route::post('ticket/{id}/vencimento',					'TicketController@updateVencimento');		
 	Route::get('ticket/{id}/priority',					'TicketController@showPriority');
 	Route::post('ticket/{id}/priority',					'TicketController@updatePriority');		
 	Route::get('ticket/{id}/department',				'TicketController@showDepartment');
@@ -74,7 +77,6 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('reply/{id}/reply',						'HistoryController@reply');
 	
 	Route::get('settings',								'SettingController@index');
-	
 	Route::resource('reply',							'HistoryController');
 	Route::resource('ticket',							'TicketController');
 	Route::resource('user',								'UserController');

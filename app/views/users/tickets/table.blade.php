@@ -132,6 +132,13 @@
 									{{ trans('translate.change_priority') }}
 								</a>							
 							</li>
+
+							<li role="presentation">
+								<a role="menuitem" tabindex="-1" href="#" class="solsoShowModal" data-toggle="modal" 
+								data-target="#solsoCrudModal" data-href="{{ URL::to('ticket/' . $v->id . '/vencimento') }}" data-modal-title="Alterar vencimento">
+									Alterar Vencimento
+								</a>							
+							</li>
 							
 							@if ( $user->role_id == 1 )
 								<li class="divider"></li>

@@ -53,14 +53,14 @@ return array(
 		),
 
 		'mysql' => array(
-                 'driver'    => 'mysql',
-			'host'      => 'bdhost0049.servidorwebfacil.com:3306',
-			'database'  => 'boom_ticket',
-			'username'  => 'boom_ticket',
-			'password'  => 'gugamap@123',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',		
+			'driver'    => 'mysql',             
+			'host'      => '82.180.153.52',             
+			'database'  => 'u943275054_bpo',             
+			'username'  => 'u943275054_bpo',             
+			'password'  => 'Vacc@2022',             
+			'charset'   => 'utf8',             
+			'collation' => 'utf8_unicode_ci',             
+			'prefix'    => '',
 		),
 
 		'pgsql' => array(
